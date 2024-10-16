@@ -1,4 +1,4 @@
-baseURL = 'https://tryreva.com/'
+baseURL = 'https://blog.tryreva.com/'
 languageCode = 'en-us'
 title = 'Reva'
 theme = 'hermit-v2'
