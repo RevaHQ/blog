@@ -10,3 +10,5 @@ tags:
 
 This is the first post on the the Reva blog.
 
+
+{{< metrics-comparison >}}
