@@ -64,3 +64,8 @@ expiryDate = ["expiryDate"]
   #   name = "About"
   #   url = "about-hugo/"
   #   weight = 20
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true  # This allows HTML in markdown
