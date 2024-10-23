@@ -17,7 +17,6 @@ permissions:
   id-token: write
   pull-requests: write
 
-# Don't cancel in-progress deployments of other PRs
 concurrency:
   group: "pages-pr-${{ github.event.pull_request.number }}"
   cancel-in-progress: false
@@ -68,6 +67,10 @@ jobs:
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       
+      # Create PR preview directory
+      - name: Create PR preview directory
+        run: mkdir -p "public/pr-preview/pr-${{ github.event.pull_request.number }}"
+      
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
@@ -77,8 +80,8 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "https://blog.tryreva.com/" \
-            --publishDir "public/pr-preview/pr-${{ github.event.pull_request.number }}"
+            --baseURL "https://blog.tryreva.com/pr-preview/pr-${{ github.event.pull_request.number }}/" \
+            -d "public/pr-preview/pr-${{ github.event.pull_request.number }}"
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
