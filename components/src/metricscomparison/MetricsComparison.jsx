@@ -1,9 +1,9 @@
 const ModelCard = ({ model, isBaseline }) => {
   return (
-    <div className="bg-[#1a1a1a] rounded-xl px-4 py-5 w-[164px] h-[136px] flex flex-col lg:w-[229px] lg:h-[136px]">
+    <div className="bg-[#1a1a1a] rounded-xl px-4 py-5 min-w-[100px] h-[136px] flex flex-col md:w-[229px]">
       <div className="text-[#EBEBEB] text-xs sm:text-sm font-medium">Model</div>
       <div className="flex-grow flex flex-col justify-center">
-        <div className={`text-xl sm:text-[24px] lg:text-[30px] font-semibold ${isBaseline ? 'text-[#8B75B7]' : 'text-[#0FC679]'}`}>
+        <div className={`text-lg sm:text-[24px] lg:text-[30px] font-semibold ${isBaseline ? 'text-[#8B75B7]' : 'text-[#0FC679]'}`}>
           {model}
         </div>
       </div>
@@ -24,10 +24,10 @@ const ModelCard = ({ model, isBaseline }) => {
   };
  
   return (
-    <div className="bg-[#1a1a1a] rounded-xl px-4 py-5 w-[164px] h-[136px] flex flex-col shrink-0 lg:w-[229px] lg:h-[136px]">
+    <div className="bg-[#1a1a1a] rounded-xl px-4 py-5 min-w-[100px] md:w-[164px] h-[136px] flex flex-col shrink-0">
       <div className="text-[#EBEBEB] text-xs sm:text-sm font-medium">{title}</div>
       <div className={`flex-grow flex flex-col justify-center ${!isBaseline && '-mt-2'}`}>
-        <div className={`text-2xl sm:text-[34px] lg:text-[40px] font-semibold ${isBaseline ? 'text-[#8B75B7]' : 'text-[#0FC679]'}`}>
+        <div className={`text-2xl sm:text-[34px] md:text-[40px] font-semibold ${isBaseline ? 'text-[#8B75B7]' : 'text-[#0FC679]'}`}>
           {isBaseline ? metric.value : formatChange(metric.change)}
         </div>
         {!isBaseline && (
@@ -166,9 +166,9 @@ const MetricsComparison = () => {
 
   return (
     <div className="overflow-x-auto">
-      <div className="min-w-min pb-4">
+      <div className="min-w-min pb-4 bg-[#262626]">
         
-        <div className="grid grid-cols-3 gap-4 lg:hidden">
+        <div className="grid grid-cols-3 gap-4 md:hidden">
           {models.map((item, index) => (
             <div key={index} className="flex flex-col gap-4">
               <ModelCard model={item.model} isBaseline={item.isBaseline} />
@@ -184,8 +184,8 @@ const MetricsComparison = () => {
           ))}
         </div>
 
-        <div className="hidden lg:block">
-          <div className="space-y-8">
+        <div className="hidden md:block">
+          <div className="space-y-4">
             {models.map((item, index) => (
               <div key={index} className="flex gap-4">
                 <ModelCard model={item.model} isBaseline={item.isBaseline} />

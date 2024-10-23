@@ -1,0 +1,52 @@
+@import "metrics-table";
+
+:root {
+    --body-bg: #262626;
+  }
+  html {
+    background: #262626 !important;
+  }
+
+  body {
+    background-color: #262626;
+  }
+
+  .header, 
+header#site-header,
+.footer,
+footer#site-footer {
+  background-color: #262626 !important;
+}
+
+.full-width-container {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 2rem 0;
+  }
+
+  .full-width-inner {
+    max-width: 1900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .full-width-image {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    height: auto;
+  }
+  
+  .full-width-image img {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: cover;
+  }
