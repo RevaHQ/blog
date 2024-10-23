@@ -2,6 +2,11 @@ name: Deploy Hugo PR Preview
 
 on:
   pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
     branches:
       - main
   workflow_dispatch:
@@ -12,9 +17,10 @@ permissions:
   id-token: write
   pull-requests: write
 
+# Don't cancel in-progress deployments of other PRs
 concurrency:
-  group: "pages-preview"
-  cancel-in-progress: true
+  group: "pages-pr-${{ github.event.pull_request.number }}"
+  cancel-in-progress: false
 
 defaults:
   run:
@@ -71,13 +77,14 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "https://blog.tryreva.com/pr-preview/pr-${{ github.event.pull_request.number }}/"          
+            --baseURL "https://blog.tryreva.com/" \
+            --publishDir "public/pr-preview/pr-${{ github.event.pull_request.number }}"
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
-          name: "pr-${{ github.event.pull_request.number }}"
+          name: "pr-preview-${{ github.event.pull_request.number }}"
 
   deploy:
     environment:
@@ -90,7 +97,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: "pr-${{ github.event.pull_request.number }}"
+          artifact_name: "pr-preview-${{ github.event.pull_request.number }}"
           preview: true
 
       - name: Comment on PR
