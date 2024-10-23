@@ -5,7 +5,7 @@
 @import "scroll.scss";
 @import "admonition.scss";
 @import "socialshare.scss";
-@import "metrics-table";
+@import "custom";
 {{ if (fileExists "assets/scss/userstyles.scss") }}
 @import "userstyles.scss";
 {{ end }}
