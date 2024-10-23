@@ -7,15 +7,23 @@ on:
 
 jobs:
   preview-url:
-    # Only run on Vercel deployment success events
     if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success' && contains(github.event.deployment_status.environment, 'Preview')
     runs-on: ubuntu-latest
     steps:
+      - name: Debug Event
+        env:
+          EVENT_CONTEXT: ${{ toJSON(github.event) }}
+        run: |
+          echo "Event Context:"
+          echo "$EVENT_CONTEXT"
+          echo "PR ID: ${{ github.event.deployment.payload.pr_id }}"
+          echo "Event Number: ${{ github.event.number }}"
+          
       - name: Find Comment
         uses: peter-evans/find-comment@v2
         id: fc
         with:
-          issue-number: ${{ github.event.deployment.payload.pr_id || github.event.number }}
+          issue-number: ${{ github.event.deployment.payload.pr_id }}
           comment-author: 'github-actions[bot]'
           body-includes: Preview deployment
 
@@ -23,7 +31,7 @@ jobs:
         uses: peter-evans/create-or-update-comment@v3
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
-          issue-number: ${{ github.event.deployment.payload.pr_id || github.event.number }}
+          issue-number: ${{ github.event.deployment.payload.pr_id }}
           body: |
             📝 Preview deployment for this PR is ready!
             
