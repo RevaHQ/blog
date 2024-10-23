@@ -1,5 +1,3 @@
-@import "metrics-table";
-
 :root {
     --body-bg: #262626;
   }
@@ -38,7 +36,7 @@ footer#site-footer {
     scrollbar-width: thin;
   }
 
-.full-width-container {
+  .full-width-container {
     width: 100vw;
     position: relative;
     left: 50%;
@@ -47,13 +45,13 @@ footer#site-footer {
     margin-right: -50vw;
     padding: 2rem 0;
   }
-
+  
   .full-width-inner {
-    max-width: 1900px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 2rem;
   }
-
+  
   .full-width-image {
     width: 100vw;
     position: relative;
@@ -62,11 +60,14 @@ footer#site-footer {
     margin-left: -50vw;
     margin-right: -50vw;
     height: auto;
+    display: flex;
+    justify-content: center;
   }
   
   .full-width-image img {
     width: 100%;
     height: auto;
     max-height: 70vh;
+    max-width: 1600px;
     object-fit: cover;
   }

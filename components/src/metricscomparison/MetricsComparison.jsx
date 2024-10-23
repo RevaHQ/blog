@@ -166,13 +166,13 @@ const MetricsComparison = () => {
 
   return (
     <div className="flex justify-center w-full">
-      <div className="w-full max-w-[calc(100vw-48px)] mx-auto">
-        <div className="overflow-x-auto">
-          <div className="min-w-min pb-4 bg-[#262626]">
+      <div className="max-w-[calc(100vw-48px)]">
+        <div className="overflow-x-auto pr-[36px] -mr-[36px]">
+          <div className="min-w-min pb-4 bg-[#262626] flex justify-center">
             <div className="space-y-2">
               {models.map((item, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="flex gap-2"
                   style={{
                     width: `calc(${189 + (item.metrics.length * 122)}px + ${(item.metrics.length + 1) * 8}px - 37px)`
