@@ -11,7 +11,7 @@ tags:
   - open_ai
 ---
 
-Last week, Intercom announced the release of their latest product, Fin 2, an update to their customer service chatbot that has been helping their customers offer support by answering customer questions since last year.
+Earlier this month, Intercom announced the release of their latest product, Fin 2, an update to their customer service chatbot that has been helping their customers offer support by answering customer questions since last year.
 
 On the technical side, Intercom shared one of the big changes; Fin 2 is [powered by Anthropic's Claude 3.5 Sonnet](https://www.intercom.com/blog/fin-2-powered-by-anthropic-claude-llm/), a big change as the original Fin was [powered by GPT4](https://www.intercom.com/blog/announcing-intercoms-new-ai-chatbot/).
 
@@ -22,6 +22,10 @@ An obvious question would be "how big of an impact could they expect to see in t
 To compare the potential performance of models many teams go on vibes, having ad-hoc conversations or using one or two ‘eval’ questions and 'feeling' good or bad about the model, prompt and configuration they have chosen. We've been thinking about the problem a little differently. For any task, we want to prove that a model is both suitable and reliable. To show both we need data, not vibes, at a scale that proves what we see isn't a fluke.
 
 As a first attempt at evaluating the models, we might get hard data by testing them on a classification task. For example, we can use a small dataset of 400 emails (synthesised for this test, available on [HuggingFace](https://huggingface.co/datasets/RevaHQ/data-phishing-detection)), known to be either genuine or phishing, and see if each LLM can correctly identify them. Doing this, we find Claude 3.5 Sonnet achieved 85% accuracy, which was the same as a locally-run Llama3.1-7B, lower than the GPT-4o score of 87.5% and GPT-4o-mini, which scored 86.25%. So is Claude worse? Well, the result is a reliable indication of the model setup, but this is not a suitable test of a customer support agent. LLMs are extremely flexible tools, but good performance on one task is not a guarantee of good performance on another.
+
+{{< pullquote >}}
+We should really test these models on a task like the sort of support work a customer support agent does.
+{{< /pullquote >}}
 
 # A Task Like Fin
 
@@ -45,7 +49,9 @@ Claude responses are generally the longest of our three candidates, about 11 wor
 
 > I've been trying to set up Fin AI Agent in our Messenger, but I'm getting some conflicts with an existing Workflow. Can you help me understand how to use the "Let Fin answer" step to avoid this conflict? Specifically, what happens when a customer opens a new conversation and clicks on a reply button - does that mean Fin will never fire if the composer is disabled at the start of the Workflow?
 
-### Claude 3.5 Sonnet
+In the answers compared below, Claude is more wordy certainly, but we can see its output is more clear and explanatory, which Intercom would be right to classify as “deeper” in the context of a chatbot. Qualitatively this reads like a stronger response. Interestingly, when we dig in, we see GPT-4o offered incorrect information, “When a customer opens a new conversation and clicks on a reply button, they enter the Workflow, and Fin AI Agent will not trigger.” is not true, and Claude offered correct information.
+
+{{< details title="Claude 3.5 Sonnet's answer" >}}
 
 > Thank you for reaching out about setting up Fin AI Agent in your Messenger. I understand you're experiencing some conflicts with an existing Workflow and have questions about how the "Let Fin answer" step works. I'd be happy to help clarify this for you.
 >
@@ -70,7 +76,8 @@ Claude responses are generally the longest of our three candidates, about 11 wor
 >
 > I hope this information helps clarify how to use Fin AI Agent alongside your existing Workflows. If you have any more questions or need further assistance, please don't hesitate to ask. We're here to help you get the most out of your Intercom setup!
 
-### GPT-4o
+{{< /details >}}
+{{< details title="GPT-4o's answer" >}}
 
 > Hello! I'd be happy to help you with setting up the Fin AI Agent and resolving the conflicts you're experiencing with your existing Workflow.
 >
@@ -87,7 +94,27 @@ Claude responses are generally the longest of our three candidates, about 11 wor
 >
 > By following these suggestions, you should be able to integrate Fin AI Agent smoothly with your existing Workflows and avoid any conflicts. If you have any more questions or need further assistance, feel free to ask!
 
-Claude is more wordy certainly, but we can see its output is more clear and explanatory, which Intercom would be right to classify as “deeper” in the context of a chatbot. Qualitatively this reads like a stronger response. Interestingly, when we dig in, we see GPT-4o offered incorrect information, “When a customer opens a new conversation and clicks on a reply button, they enter the Workflow, and Fin AI Agent will not trigger.” is not true, and Claude offered correct information.
+{{< /details >}}
+{{< details title="GPT-4o-mini's answer" >}}
+
+> Hi there! I'd be happy to help you with setting up the Fin AI Agent in your Messenger and understanding how to avoid conflicts with your existing Workflow.
+>
+> When you use the "Let Fin answer" step in your Workflow, it's important to consider how it interacts with customer input and the Workflow itself. If you disable the composer at the start of the Workflow, customers will not have the option to type their questions. In this case, if they click on a reply button, they will enter the Workflow, and the Fin AI Agent will not fire.
+>
+> Here's a breakdown to clarify:
+>
+> - **When a customer opens a new conversation**: The Workflow with reply buttons will show up. If the customer clicks a reply button, they will enter that Workflow, and Fin will not respond.
+> - **If the composer is left open**: Customers can type their questions, and Fin AI Agent will take over, bypassing the Workflow entirely.
+>
+> To ensure that Fin can respond, you can try the following:
+>
+> 1. **Remove the "Disable customer reply" option**: This allows customers to type in their questions, enabling Fin to respond.
+> 2. **Position the "Let Fin answer" step later in the Workflow**: Consider adding it after a button that prompts users to ask a question.
+> 3. **Check audience targeting**: Make sure that the audience rules for the Workflow and Fin AI Agent do not overlap, as this can cause unexpected behavior.
+>
+> By making these adjustments, you should be able to set up the Fin AI Agent effectively without conflicts with your existing Workflow. If you have any further questions or need more assistance, feel free to ask!
+
+{{< /details >}}
 
 ## Sentiment
 
@@ -97,7 +124,7 @@ On average Claude shows more emotion, whether joy, sadness, anger or fear. The d
 
 What’s interesting here is that it’s clear the emotion is mild in all three responses, Claude likely registers as the most fearful seemingly because it is mirroring the customer’s annoyance back to them (“I want to reassure you that it's completely normal to feel unsure about API details, especially if the person who set it up is no longer with the company. We can work through this together!”). Also notice that Claude goes in-depth on the steps required, and GPT-4o would require more information.
 
-### Claude 3.5 Sonnet
+{{< details title="Claude 3.5 Sonnet's answer" >}}
 
 > Hello! Thank you for reaching out about setting up a Custom Action in your Workflow. I understand you're having trouble with the API endpoint for your third-party support tool. Let me try to help guide you through this process.
 >
@@ -120,7 +147,8 @@ What’s interesting here is that it’s clear the emotion is mild in all three 
 >
 > In the meantime, is there any other way I can assist you with your Workflow setup?
 
-### GPT-4o
+{{< /details >}}
+{{< details title="GPT-4o's answer" >}}
 
 > Hello! I'd be happy to help you with creating a Custom Action in your Workflow. It sounds like you're at the step where you need to connect to your third-party support tool API.
 >
@@ -136,7 +164,8 @@ What’s interesting here is that it’s clear the emotion is mild in all three 
 >
 > Let me know if you have any more questions or need further assistance! 😊
 
-### GPT-4o-mini
+{{< /details >}}
+{{< details title="GPT-4o-mini's answer" >}}
 
 > Hi there!
 >
@@ -159,6 +188,8 @@ What’s interesting here is that it’s clear the emotion is mild in all three 
 >
 > Feel free to reach out if you have more questions or need further assistance. Happy building! 😊
 
+{{< /details >}}
+
 # LLM-as-Judge
 
 One way the success of Fin is judged is by 'resolutions', whether it solved the customer's problem. We don't have access to real data on this, like corresponding support tickets with closed/open statuses, which can be used to further directly measure success. Instead we can use a common technique, LLM-as-judge, as a proxy. This is an accepted evaluation technique that uses an LLM to provide a qualitative judgement as a large scale test of a sample of the answers generated by these models
@@ -166,6 +197,8 @@ One way the success of Fin is judged is by 'resolutions', whether it solved the 
 We used Llama 3 7B to judge each model’s response to 100 samples from our dataset. In the LLM's judgement both GPT-4o and Claude Sonnet 3.5 were judged to have not resolved two questions, with GPT-4o resolving 98 and Claude resolving 96. Interestingly GPT-4o-mini resolved the most, with 99 resolved. As we’ve seen GPT-4o-mini tends to be more direct, with less commentary, a more “just the facts” approach.
 
 Claude wrote two responses that weren't labelled as either resolving or not resolving, one of which looks like this:
+
+{{< details title="Claude 3.5 Sonnet's insufficient answer" >}}
 
 > Question:
 > Hi there, I'm trying to customize Fin's name and profile picture, but when I click on the 'Save changes' button, it just doesn't seem to be applying those changes to the Messenger. Can you help me figure out why this might be happening?
@@ -186,9 +219,14 @@ Claude wrote two responses that weren't labelled as either resolving or not reso
 >
 > Is there anything else about customizing Fin that I can help you with?
 
-This seems to be a case where back-and-forth conversation may provide finality, so it's hard to comment on quality. These were both rated as 0, and will be included in rating analysis as such.
+This seems to be a case where back-and-forth conversation may provide finality, so it's hard to comment on quality. These were both rated 0, and will be included in rating analysis as such.
+{{< /details >}}
 
-Looking at the ratings, the LLM was instructed to give a quality rating to each response. But here we find what may be one of the main reasons Intercom have chosen to go with Claude as opposed to GPT-4o. As shown below, there are less unhelpful responses from Claude than GPT-4o, which may be a good baseline to build from, with better failures than GPT-4o. In short, the bad experience with Claude isn't as bad as the bad experience with GPT-4o, which is hugely important over millions of support conversations. A rising tide of improving quality on average, rather than focusing on a better experience for the high end.
+{{< pullquote >}}
+...there are fewer unhelpful responses from Claude than GPT-4o, which may be a good baseline to build from, with better failures than GPT-4o. In short, the bad experience with Claude isn't as bad as the bad experience with GPT-4o
+{{< /pullquote >}}
+
+Looking at the ratings, the LLM was instructed to give a quality rating to each response. But here we find what may be one of the main reasons Intercom have chosen to go with Claude as opposed to GPT-4o. As shown below, there are fewer unhelpful responses from Claude than GPT-4o, which may be a good baseline to build from, with better failures than GPT-4o. In short, the bad experience with Claude isn't as bad as the bad experience with GPT-4o, which is hugely important over millions of support conversations. A rising tide of improving quality on average, rather than focusing on a better experience for the high end.
 
 {{< full-width-image src="/images/bar_chart.webp" alt="Three bar charts showing the distribution of answer quality for each of our three models. Claude's answers have a much higher floor than GPT-4o or GPT-4o-mini" >}}
 
