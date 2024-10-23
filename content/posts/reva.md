@@ -18,4 +18,4 @@ This is the first post on the the Reva blog.
 
 ## Image
 
-{{< full-width-image src="/images/bar_chart.webp" alt="Quality rating analysis" >}}
+{{< full-width-image src="/images/rev_bar_chart.webp" alt="Quality rating analysis" >}}
