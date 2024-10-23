@@ -1,8 +1,6 @@
 name: Vercel Preview URL Comment
 
 on:
-  pull_request:
-    types: [opened, synchronize]
   deployment_status:
 
 jobs:
@@ -10,32 +8,40 @@ jobs:
     if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success' && contains(github.event.deployment_status.environment, 'Preview')
     runs-on: ubuntu-latest
     steps:
-      - name: Debug Event
+      - name: Debug deployment event
         env:
-          EVENT_CONTEXT: ${{ toJSON(github.event) }}
+          EVENT_JSON: ${{ toJSON(github.event) }}
         run: |
-          echo "Event Context:"
-          echo "$EVENT_CONTEXT"
-          echo "PR ID: ${{ github.event.deployment.payload.pr_id }}"
-          echo "Event Number: ${{ github.event.number }}"
-          
-      - name: Find Comment
-        uses: peter-evans/find-comment@v2
-        id: fc
-        with:
-          issue-number: ${{ github.event.deployment.payload.pr_id }}
-          comment-author: 'github-actions[bot]'
-          body-includes: Preview deployment
+          echo "Deployment Event:"
+          echo "$EVENT_JSON"
 
-      - name: Create or Update Comment
-        uses: peter-evans/create-or-update-comment@v3
+      - name: Comment on PR
+        uses: actions/github-script@v7
         with:
-          comment-id: ${{ steps.fc.outputs.comment-id }}
-          issue-number: ${{ github.event.deployment.payload.pr_id }}
-          body: |
+          script: |
+            const { deployment_status, deployment } = context.payload;
+            
+            // Get PR number from deployment metadata
+            const prNumber = deployment.payload.pr_id;
+            
+            if (!prNumber) {
+              console.log('No PR number found in deployment payload');
+              return;
+            }
+            
+            // Create comment content
+            const commentBody = `
             📝 Preview deployment for this PR is ready!
             
-            🔍 Preview URL: ${{ github.event.deployment_status.target_url }}
+            🔍 Preview URL: ${deployment_status.target_url}
             
             ⚡ Deployed by Vercel
-          edit-mode: replace
+            `;
+            
+            // Add comment to PR
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: commentBody
+            });
