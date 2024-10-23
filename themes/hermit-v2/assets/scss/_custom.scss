@@ -18,6 +18,26 @@ footer#site-footer {
   background-color: #262626 !important;
 }
 
+.overflow-x-auto {
+    /* For Webkit browsers (Chrome, Safari) */
+    &::-webkit-scrollbar {
+      height: 10px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: #1E201F;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: #424242;
+      border-radius: 4px;
+    }
+  
+    /* For Firefox */
+    scrollbar-color: #424242 #1E201F;
+    scrollbar-width: thin;
+  }
+
 .full-width-container {
     width: 100vw;
     position: relative;
