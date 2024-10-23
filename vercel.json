@@ -1,6 +1,11 @@
 {
     "framework": "hugo",
-    "buildCommand": "cd components && npm ci && npm run build && cd .. && echo 'Theme directory contents:' && ls -la themes/hermit-v2/layouts/shortcodes && echo 'Hugo Environment:' && hugo env && hugo --gc --minify --debug --verbose",
-    "installCommand": "curl -L https://github.com/gohugoio/hugo/releases/download/v0.128.0/hugo_extended_0.128.0_Linux-64bit.tar.gz | tar -xz && mv hugo /usr/local/bin",
+    "buildCommand": "cd components && npm ci && npm run build && cd .. && HUGO_ENVIRONMENT=production hugo --gc --minify",
+    "build": {
+        "env": {
+            "HUGO_VERSION": "0.128.0",
+            "TZ": "America/Los_Angeles"
+        }
+    },
     "outputDirectory": "public"
 }
