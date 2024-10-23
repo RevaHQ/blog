@@ -190,7 +190,7 @@ This seems to be a case where back-and-forth conversation may provide finality, 
 
 Looking at the ratings, the LLM was instructed to give a quality rating to each response. But here we find what may be one of the main reasons Intercom have chosen to go with Claude as opposed to GPT-4o. As shown below, there are less unhelpful responses from Claude than GPT-4o, which may be a good baseline to build from, with better failures than GPT-4o. In short, the bad experience with Claude isn't as bad as the bad experience with GPT-4o, which is hugely important over millions of support conversations. A rising tide of improving quality on average, rather than focusing on a better experience for the high end.
 
-{{< full-width-image src="/images/bar_chart.webp" alt="Three bar charts showing the distribution of answer quality for each of our three models. Claude's answers have a much higher floor than GPT-4o or GPT-4o-mini" >}}
+{{< full-width-image src="/images/rev_bar_chart.webp" alt="Three bar charts showing the distribution of answer quality for each of our three models. Claude's answers have a much higher floor than GPT-4o or GPT-4o-mini" >}}
 
 # Conclusion
 
