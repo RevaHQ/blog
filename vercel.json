@@ -1,5 +1,5 @@
 {
-    "buildCommand": "cd components && npm install && npm run build && cd .. && hugo --gc --minify",
+    "buildCommand": "git submodule init && git submodule update && cd components && npm install && npm run build && cd .. && hugo --gc --minify",
     "outputDirectory": "public",
     "framework": "hugo"
 }
