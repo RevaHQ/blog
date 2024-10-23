@@ -1,0 +1,33 @@
+name: Vercel Preview URL Comment
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  deployment_status:
+
+jobs:
+  preview-url:
+    # Only run on Vercel deployment success events
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success' && contains(github.event.deployment_status.environment, 'Preview')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Find Comment
+        uses: peter-evans/find-comment@v2
+        id: fc
+        with:
+          issue-number: ${{ github.event.deployment.payload.pr_id || github.event.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: Preview deployment
+
+      - name: Create or Update Comment
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ github.event.deployment.payload.pr_id || github.event.number }}
+          body: |
+            📝 Preview deployment for this PR is ready!
+            
+            🔍 Preview URL: ${{ github.event.deployment_status.target_url }}
+            
+            ⚡ Deployed by Vercel
+          edit-mode: replace

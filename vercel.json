@@ -7,5 +7,9 @@
             "TZ": "America/Los_Angeles"
         }
     },
-    "outputDirectory": "public"
+    "outputDirectory": "public",
+    "github": {
+        "enabled": true,
+        "silent": false
+    }
 }
