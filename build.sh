@@ -1,9 +1,16 @@
 #!/bin/bash
-
 set -e  # Exit on error
 set -x  # Print commands for debugging
 
 echo "Starting build process..."
+
+# Install Hugo using direct binary download
+echo "Installing Hugo..."
+mkdir -p /tmp/hugo
+curl -L https://github.com/gohugoio/hugo/releases/download/v0.128.0/hugo_extended_0.128.0_Linux-64bit.tar.gz -o /tmp/hugo/hugo.tar.gz
+tar -xzf /tmp/hugo/hugo.tar.gz -C /tmp/hugo
+chmod +x /tmp/hugo/hugo
+export PATH=$PATH:/tmp/hugo
 
 # Initialize and update submodules
 echo "Initializing submodules..."
