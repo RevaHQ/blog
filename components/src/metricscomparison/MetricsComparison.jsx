@@ -1,9 +1,9 @@
 const ModelCard = ({ model, isBaseline }) => {
   return (
-    <div className="bg-[#1a1a1a] rounded-xl px-4 py-5 min-w-[100px] h-[136px] flex flex-col md:w-[229px]">
-      <div className="text-[#EBEBEB] text-xs sm:text-sm font-medium">Model</div>
+    <div className="bg-[#1a1a1a] rounded-xl px-4 py-5 w-[189px] h-[130px] flex flex-col">
+      <div className="text-[#EBEBEB] text-[14px] font-medium leading-[20px]">Model</div>
       <div className="flex-grow flex flex-col justify-center">
-        <div className={`text-lg sm:text-[24px] lg:text-[30px] font-semibold ${isBaseline ? 'text-[#8B75B7]' : 'text-[#0FC679]'}`}>
+        <div className={`text-[24px] font-semibold ${isBaseline ? 'text-[#8B75B7]' : 'text-[#0FC679]'} leading-[32px]`}>
           {model}
         </div>
       </div>
@@ -24,14 +24,14 @@ const ModelCard = ({ model, isBaseline }) => {
   };
  
   return (
-    <div className="bg-[#1a1a1a] rounded-xl px-4 py-5 min-w-[100px] md:w-[164px] h-[136px] flex flex-col shrink-0">
-      <div className="text-[#EBEBEB] text-xs sm:text-sm font-medium">{title}</div>
+    <div className="bg-[#1a1a1a] rounded-xl px-4 py-5 w-[122px] h-[132px] flex flex-col shrink-0">
+      <div className="text-[#EBEBEB] text-[14px] font-medium leading-[20px]">{title}</div>
       <div className={`flex-grow flex flex-col justify-center ${!isBaseline && '-mt-2'}`}>
-        <div className={`text-2xl sm:text-[34px] md:text-[40px] font-semibold ${isBaseline ? 'text-[#8B75B7]' : 'text-[#0FC679]'}`}>
+        <div className={`text-[24px] font-semibold ${isBaseline ? 'text-[#8B75B7]' : 'text-[#0FC679]'} leading-[32px]`}>
           {isBaseline ? metric.value : formatChange(metric.change)}
         </div>
         {!isBaseline && (
-          <div className="text-[#9f9f9f] text-xs font-normal mt-1">
+          <div className="text-[#9f9f9f] text-[14px] font-normal mt-1 leading-[13px]">
             Total: {metric.total}
           </div>
         )}
@@ -168,26 +168,12 @@ const MetricsComparison = () => {
     <div className="overflow-x-auto">
       <div className="min-w-min pb-4 bg-[#262626]">
         
-        <div className="grid grid-cols-3 gap-4 md:hidden">
-          {models.map((item, index) => (
-            <div key={index} className="flex flex-col gap-4">
-              <ModelCard model={item.model} isBaseline={item.isBaseline} />
-              {item.metrics.map((metric, metricIndex) => (
-                <MetricCard
-                  key={metricIndex}
-                  title={metric.name}
-                  metric={metric.metrics}
-                  isBaseline={item.isBaseline}
-                />
-              ))}
-            </div>
-          ))}
-        </div>
+        
 
-        <div className="hidden md:block">
-          <div className="space-y-4">
+        
+          <div className="space-y-2">
             {models.map((item, index) => (
-              <div key={index} className="flex gap-4">
+              <div key={index} className="flex gap-2">
                 <ModelCard model={item.model} isBaseline={item.isBaseline} />
                 {item.metrics.map((metric, metricIndex) => (
                   <MetricCard
@@ -200,7 +186,7 @@ const MetricsComparison = () => {
               </div>
             ))}
           </div>
-        </div>
+        
       </div>
     </div>
   );
