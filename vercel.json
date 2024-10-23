@@ -1,8 +1,8 @@
 {
-    "buildCommand": "git submodule init && git submodule update && cd components && npm install && npm run build && cd .. && hugo --gc --minify",
-    "outputDirectory": "public",
     "framework": "hugo",
-    "installCommand": "curl -L https://github.com/gohugoio/hugo/releases/download/v0.128.0/hugo_extended_0.128.0_linux-amd64.deb -o hugo.deb && sudo dpkg -i hugo.deb",
+    "buildCommand": "bash ./build.sh",
+    "outputDirectory": "public",
+    "installCommand": "wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.128.0/hugo_extended_0.128.0_linux-amd64.deb && sudo dpkg -i hugo.deb && npm install",
     "builds": [
         {
             "src": "**",
