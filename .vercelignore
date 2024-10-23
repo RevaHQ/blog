@@ -1,3 +1,6 @@
-.git
-.github
+.git/
+.github/
+components/node_modules/
+hugo.deb
+.gitmodules
 README.md
