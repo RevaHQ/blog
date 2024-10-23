@@ -59,35 +59,70 @@ jobs:
         working-directory: ./components
         run: npm ci
       
+      # Debug directory structure before builds
+      - name: Debug - Initial structure
+        run: |
+          pwd
+          ls -la
+          echo "Current working directory structure:"
+          tree || true
+
+      # Create PR preview directory first
+      - name: Create PR preview directory
+        run: |
+          mkdir -p "public/pr-preview/pr-${{ github.event.pull_request.number }}"
+          echo "Created preview directory:"
+          ls -la public/pr-preview
+
+      # Build React components with debug info
       - name: Build React components
         working-directory: ./components
         run: |
+          echo "Building React components..."
           npm run build
+          echo "Checking static/js contents:"
+          ls -la ../static/js/
+          echo "Creating js directory in preview..."
           mkdir -p "../public/pr-preview/pr-${{ github.event.pull_request.number }}/js"
-          ls -la ../static/js/  # Check what files exist after build
+          echo "Copying files..."
           cp -r ../static/js/* "../public/pr-preview/pr-${{ github.event.pull_request.number }}/js/"
-          ls -la "../public/pr-preview/pr-${{ github.event.pull_request.number }}/js/"  # Verify files copied
+          echo "Verifying copied files:"
+          ls -la "../public/pr-preview/pr-${{ github.event.pull_request.number }}/js"
 
       # Continue with Hugo build
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       
-      # Create PR preview directory
-      - name: Create PR preview directory
-        run: mkdir -p "public/pr-preview/pr-${{ github.event.pull_request.number }}"
-      
+      # Build Hugo with debug info
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: preview
           TZ: America/Los_Angeles
         run: |
+          echo "Building Hugo..."
           hugo \
             --gc \
             --minify \
             --baseURL "https://blog.tryreva.com/pr-preview/pr-${{ github.event.pull_request.number }}/" \
             -d "public/pr-preview/pr-${{ github.event.pull_request.number }}"
-          ls -la "public/pr-preview/pr-${{ github.event.pull_request.number }}"  # Check final structure
+          echo "Hugo build complete. Checking output directory:"
+          ls -la "public/pr-preview/pr-${{ github.event.pull_request.number }}"
+
+      # Debug final structure before upload
+      - name: Debug - Final structure
+        run: |
+          echo "Final directory structure for upload:"
+          ls -la "public/pr-preview/pr-${{ github.event.pull_request.number }}"
+          echo "Full tree of public directory:"
+          tree public || true
+
+      # Upload artifact using v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+            path: "public/pr-preview/pr-${{ github.event.pull_request.number }}"
+            name: "pr-preview-${{ github.event.pull_request.number }}"
 
   deploy:
     environment:
