@@ -1,7 +1,5 @@
 <div class="expandable-wrapper">
   <div id="expandable" data-title="{{ .Get `title` }}" data-content="{{ .Inner | markdownify | safeHTMLAttr }}">
-    
-
   </div>
 </div>
   {{ if eq hugo.Environment "development" }}
@@ -15,5 +13,5 @@
     <script type="module" src="http://localhost:5173/@vite/client"></script>
     <script type="module" src="http://localhost:5173/src/expandable/index.jsx"></script>
   {{ else }}
-    <script src="/js/expandable.js"></script>
+    <script type="module" src="/js/expandable.js"></script>
   {{ end }}
