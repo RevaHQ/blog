@@ -3,7 +3,20 @@
 <!DOCTYPE html>
 <html lang="{{.Site.LanguageCode}}">
 <head>
-	<link rel="stylesheet" href="/js/assets/tailwindglobal.css">
+	{{ if eq hugo.Environment "development" }}
+    <script type="module">
+      import RefreshRuntime from 'http://localhost:5173/@react-refresh'
+      RefreshRuntime.injectIntoGlobalHook(window)
+      window.$RefreshReg$ = () => {}
+      window.$RefreshSig$ = () => (type) => type
+      window.__vite_plugin_react_preamble_installed__ = true
+    </script>
+	<script type="module" src="http://localhost:5173/@vite/client"></script>
+	<script type="module" src="http://localhost:5173/src/tailwindglobal/index.jsx"></script>
+  {{ else }}
+  <link rel="stylesheet" href="/js/assets/tailwindglobal.css">
+  {{ end }}
+
 
 {{- if .Site.Params.googleTagManager -}}{{- partial "googleTagManager_head.html" . -}}{{- end -}}
 {{- partial "analytics.html" . -}}
