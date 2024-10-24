@@ -11,9 +11,9 @@ writeStats = true
 
 [frontmatter]
 date = ["date", "publishDate", "lastmod"]
-lastmod = ["lastmod", ":git", "date", "publishDate"]
+# lastmod = ["lastmod", ":git", "date", "publishDate"]
 publishDate = ["publishDate", "date"]
-expiryDate = ["expiryDate"]
+# expiryDate = ["expiryDate"]
 
 [params.author]
 name = "Reva"
@@ -80,4 +80,3 @@ getenv = [
   '^HUGO_',
   '^VERCEL_',
 ] # Allow Hugo to access these environment variables
-
