@@ -17,7 +17,6 @@ Plain text here
 ### Header 3
 
 {{< expandable title="Claude 3.5 Sonnet's answer" >}}
-## example head
 Thank you for reaching out about setting up Fin AI Agent in your Messenger. I understand you're experiencing some conflicts with an existing Workflow and have questions about how the "Let Fin answer" step works. I'd be happy to help clarify this for you.
 
 Based on the information in our support docs, here are a few key points that should help address your concerns:

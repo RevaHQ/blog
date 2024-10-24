@@ -1,8 +1,16 @@
-import React, { useState } from 'react';
-import './styles.css';
+import React from 'react';
 
 const Expandable = ({ title, content }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = React.useState(false);
+
+  // Decode content if it's still encoded
+  const decodeHTML = (html) => {
+    const txt = document.createElement('textarea');
+    txt.innerHTML = html;
+    return txt.value;
+  };
+
+  const decodedContent = decodeHTML(content);
 
   return (
     <div className="my-8 bg-[#1E201F] py-[20px] px-[16px] rounded-lg">
@@ -10,10 +18,11 @@ const Expandable = ({ title, content }) => {
         {title}
       </h3>
       
-      <div 
-          className="expandable-content text-gray-300 mt-4"
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
+      
+      {isExpanded && <div 
+        className="expandable-content text-gray-300 mt-4"
+        dangerouslySetInnerHTML={{ __html: decodedContent }}
+      />}
 
       <button 
         onClick={() => setIsExpanded(!isExpanded)}

@@ -6,12 +6,13 @@ import './styles.css';
 
 const container = document.getElementById('expandable')
 if (container) {
-  ReactDOM.createRoot(container).render(
-    <React.StrictMode>
-      <Expandable 
-      title={container.dataset.title} 
-      content={container.dataset.content} 
-    />
-    </React.StrictMode>,
-  )
-}
+    ReactDOM.createRoot(container).render(
+      <React.StrictMode>
+        <Expandable 
+          title={container.dataset.title}
+          content={container.dataset.content}
+        />
+      </React.StrictMode>
+    );
+  }
+  
