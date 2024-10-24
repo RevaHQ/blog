@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { resolve } from 'path'; 
+import { resolve } from 'path';
 
 const components = ['metricscomparison', 'quoteblock', 'expandable'];
 
@@ -8,7 +8,6 @@ export default defineConfig({
   plugins: [
     react({
       fastRefresh: true,
-      // Add these explicit refresh options
       include: "**/*.jsx",
       exclude: "/node_modules/**",
     })
