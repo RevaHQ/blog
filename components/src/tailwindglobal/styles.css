@@ -1,0 +1,6 @@
+.expandable-wrapper, .metrics-comparison-wrapper, .quote-block-wrapper {
+    @tailwind base;
+}
+
+@tailwind components;
+@tailwind utilities;
