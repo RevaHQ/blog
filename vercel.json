@@ -1,0 +1,15 @@
+{
+    "framework": "hugo",
+    "buildCommand": "cd components && npm ci && npm run build && cd .. && HUGO_ENVIRONMENT=production hugo --gc --minify",
+    "build": {
+        "env": {
+            "HUGO_VERSION": "0.128.0",
+            "TZ": "America/Los_Angeles"
+        }
+    },
+    "outputDirectory": "public",
+    "github": {
+        "enabled": true,
+        "silent": false
+    }
+}

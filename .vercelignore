@@ -1,0 +1,5 @@
+.git/
+.github/
+components/node_modules/
+.gitmodules
+README.md

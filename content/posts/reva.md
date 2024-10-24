@@ -8,14 +8,8 @@ tags:
   - announcement
 ---
 
-This is the first post on the the Reva blog.
+# Header 1
 
-## Comparison
+Plain text here
 
-{{< full-width >}}
-{{< metrics-comparison >}}
-{{< /full-width >}}
-
-## Image
-
-{{< full-width-image src="/images/bar_chart.webp" alt="Quality rating analysis" >}}
+### Header 3

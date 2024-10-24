@@ -1,4 +1,4 @@
-baseURL = 'https://blog.tryreva.com/'
+baseURL = '/'  # This will be overridden by --baseURL flag
 languageCode = 'en-us'
 title = 'Reva'
 theme = 'hermit-v2'
@@ -6,12 +6,14 @@ theme = 'hermit-v2'
 copyright = "Reva"
 enableEmoji = true
 
+[build]
+  writeStats = true
+
 [frontmatter]
 date = ["date", "publishDate", "lastmod"]
 lastmod = ["lastmod", ":git", "date", "publishDate"]
 publishDate = ["publishDate", "date"]
 expiryDate = ["expiryDate"]
-
 
 [params.author]
   name = "Reva"
@@ -53,8 +55,10 @@ expiryDate = ["expiryDate"]
   # initialPublish = "Initally Posted on: "
   # human = ["single","posts"]
 
+  # New parameters for environment handling
+  production = false  # This will be true for production builds
+  
 [menu]
-
   [[menu.main]]
     name = "Posts"
     url = "posts/"
@@ -69,3 +73,7 @@ expiryDate = ["expiryDate"]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true  # This allows HTML in markdown
+
+[security]
+  [security.funcs]
+    getenv = ['^HUGO_', '^VERCEL_']  # Allow Hugo to access these environment variables
