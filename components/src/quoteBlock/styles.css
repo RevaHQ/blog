@@ -1,0 +1,5 @@
+.quote-block-wrapper {
+    @tailwind base;
+}
+@tailwind components;
+@tailwind utilities;
