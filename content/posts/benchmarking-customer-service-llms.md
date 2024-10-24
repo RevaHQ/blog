@@ -40,6 +40,10 @@ Since we don’t have access to Fin’s systems or data, we need to synthesise s
 
 # Results
 
+{{< full-width >}}
+{{< metrics-comparison >}}
+{{< /full-width >}}
+
 Our backtesting approach makes it easy to see the quantitative, aggregate data that summarises key strengths and weaknesses of each model on the task, as well as dive into individual generations, to see the qualitative performance of each model on a single example, much like an eval. The readability of answers from all candidates is roughly the same, all producing high-school-level text, though Claude is very slightly in sophomore rather than freshman territory. That increased complexity coupled with longer answers might be an advantage for Claude. Again, the task dictates what is truly important, so let’s take a look at some of the signals we are seeing in detail.
 
 ## Response Length

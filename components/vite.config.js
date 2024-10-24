@@ -5,7 +5,14 @@ import { resolve } from 'path';
 const components = ['metricscomparison'];
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react({
+      fastRefresh: true,
+      // Add these explicit refresh options
+      include: "**/*.jsx",
+      exclude: "/node_modules/**",
+    })
+  ],
   server: {
     port: 5173,
     cors: true,
@@ -14,7 +21,8 @@ export default defineConfig({
     },
     hmr: {
       host: 'localhost',
-      protocol: 'ws'
+      protocol: 'ws',
+      timeout: 120000,
     },
   },
   build: {
