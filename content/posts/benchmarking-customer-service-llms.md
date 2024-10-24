@@ -1,7 +1,6 @@
 ---
-title: "Benchmarking Customer Service LLMs: Exploring Intercom's Switch from GPT-4 to Claude"
+title: "Benchmarking Customer Service LLMs: Exploring Intercom's Switch from OpenAI to Anthropic"
 date: 2024-10-23T11:00:00+01:00
-draft: true
 toc: false
 images:
 tags:
@@ -236,8 +235,8 @@ Looking at the ratings, the LLM was instructed to give a quality rating to each 
 
 # Conclusion
 
-The story is clear in the data, Intercom's switch to Claude will have clear specific effects when it comes to improving the conversations that are more difficult. Claude is anecdotally much better than GPT-4o, but our results show that Claude's advantages aren't unconditional, and depending on your task going with the popular model isn't always optimal.
+The data reveals nuanced findings: Claude offers significant advantages for complex interactions, though it's not universally superior to GPT-4o. Intercom's switch makes strategic sense given Claude's ability to improve their most challenging support cases.
 
-Claude will raise the floor for Fin’s worse interactions in its current iteration, so the switch makes obvious sense from a product perspective. There are always new and different models, prompts and approaches, so a good testing framework such as what we have presented here is essential. Of course, Intercom isn't working on a basic version of the task, and their system has the benefit of a talented team of ML Engineers working to tune each aspect of the system to best effect. Their system could produce more relevant support docs, their prompts could have been updated to take advantage of Claude Sonnet 3.5's strengths, and a whole host of changes could have a massive impact. This means it is measuring a specific, relevant metric of model performance (this could be part of SMART goal-setting, for example).
+While our testing framework provides valuable baseline comparisons, it's crucial to note that Intercom's implementation likely goes far beyond these fundamentals. Their ML team can optimize prompts, enhance document retrieval, and fine-tune system components to amplify Claude's strengths.
 
-This post has shown that for this task there is no intrinsic advantage to one of these models or the other, execution is what truly matters. As new models appear, having the ability to perform representative tests on your task will be essential. This is the sort of data that will let your team iterate and improve at speed. At Reva, we are working to build out tooling and expertise that helps teams, whether big or small, measure and improve their AI performance, and you can find out more about us [here](tryreva.com).
+The key lesson? Model selection alone isn't enough - success requires deep understanding of each model's behaviors and limitations. As the AI landscape evolves, the ability to conduct representative testing will be crucial for teams to make data-driven decisions and iterate effectively. At Reva, we are working to build out tooling and expertise that helps teams, whether big or small, measure and improve their AI performance, and you can find out more about us [here](tryreva.com).
