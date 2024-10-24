@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import ReactDOM from 'react-dom/client'
 import Expandable from './Expandable';
 import './styles.css';
+import '../tailwind-global/styles.css';
 
 const container = document.getElementById('expandable')
 if (container) {
