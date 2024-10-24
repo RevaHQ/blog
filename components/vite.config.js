@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 
-const components = ['metricscomparison', 'quoteblock', 'expandable'];
+const components = ['metricscomparison'];
 
 export default defineConfig({
   plugins: [
