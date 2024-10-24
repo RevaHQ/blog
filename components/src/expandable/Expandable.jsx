@@ -20,7 +20,7 @@ const Expandable = ({ title, content }) => {
 
       <button 
         onClick={() => setIsExpanded(!isExpanded)}
-        className={`!text-[#979797] font-normal text-[16px] leading-[13px] hover:opacity-80 ${isExpanded ? '!text-[#0FC679]' : ''}`}
+        className={`font-normal text-[16px] leading-[13px] hover:opacity-80 ${isExpanded ? '!text-[#0FC679]' : '!text-[#979797]'}`}
       >
         {isExpanded ? 'Hide full response' : 'View full response'}
       </button>

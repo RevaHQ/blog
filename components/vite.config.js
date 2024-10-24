@@ -35,7 +35,8 @@ export default defineConfig({
       output: {
         entryFileNames: '[name].js',
         dir: '../static/js',
-        format: 'iife'
+        format: 'iife',
+        inlineDynamicImports: false
       }
     },
     minify: 'terser',
