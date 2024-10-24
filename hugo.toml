@@ -1,4 +1,4 @@
-baseURL = '/'  # This will be overridden by --baseURL flag
+baseURL = '/'          # This will be overridden by --baseURL flag
 languageCode = 'en-us'
 title = 'Reva'
 theme = 'hermit-v2'
@@ -7,7 +7,7 @@ copyright = "Reva"
 enableEmoji = true
 
 [build]
-  writeStats = true
+writeStats = true
 
 [frontmatter]
 date = ["date", "publishDate", "lastmod"]
@@ -16,64 +16,68 @@ publishDate = ["publishDate", "date"]
 expiryDate = ["expiryDate"]
 
 [params.author]
-  name = "Reva"
-  # about = "LLM Testing and Data Synthesis"
+name = "Reva"
+# about = "LLM Testing and Data Synthesis"
 
 [params]
-  dateform        = "Jan 2, 2006"
-  dateformShort   = "Jan 2"
-  dateformNum     = "2006-01-02"
-  dateformNumTime = "2006-01-02 15:04 -0700"
+dateform = "Jan 2, 2006"
+dateformShort = "Jan 2"
+dateformNum = "2006-01-02"
+dateformNumTime = "2006-01-02 15:04 -0700"
 
-  # description = "CHANGE ME SITE DESCRIPTION"
-  # images = [""]
-  themeColor = "#1E201F"
+# description = "CHANGE ME SITE DESCRIPTION"
+# images = [""]
+themeColor = "#1E201F"
 
-  #homeSubtitle = "CHANGE ME HOME SUBTITLE"
-  footerCopyright = "Reva"
-  # bgImg = ""
-  # gitUrl = "https://github.com/1bl4z3r/hermit-V2/tree/staging"
+#homeSubtitle = "CHANGE ME HOME SUBTITLE"
+footerCopyright = "Reva"
+# bgImg = ""
+# gitUrl = "https://github.com/1bl4z3r/hermit-V2/tree/staging"
 
-  justifyContent = false
+justifyContent = false
 
-  relatedPosts = true
-  code_copy_button = true
+relatedPosts = true
+code_copy_button = true
 
-  homeSubtitlePrinter = true
-  scrollToTop = true 
-  global_mathjax = false
-  readTime = true
-  # readTimeSeparator = "CHANGE ME READ TIME"
-  # legacyLayout = false
-  shareSocial = true
-  # googleTagManager = "GTM-XXXXXXXX"
-  # tagSymbol = "#"
-  # categorySymbol = "⊲"
-  # pinned = "Pinned Posts"
-  # pinnedSVGname = "pin"
-  # descriptionInPosts= true
-  # initialPublish = "Initally Posted on: "
-  # human = ["single","posts"]
+homeSubtitlePrinter = true
+scrollToTop = true
+global_mathjax = false
+readTime = false
+# readTimeSeparator = "CHANGE ME READ TIME"
+# legacyLayout = false
+shareSocial = true
+# googleTagManager = "GTM-XXXXXXXX"
+# tagSymbol = "#"
+# categorySymbol = "⊲"
+# pinned = "Pinned Posts"
+# pinnedSVGname = "pin"
+# descriptionInPosts= true
+# initialPublish = "Initally Posted on: "
+# human = ["single","posts"]
 
-  # New parameters for environment handling
-  production = false  # This will be true for production builds
-  
+# New parameters for environment handling
+production = false # This will be true for production builds
+
 [menu]
-  [[menu.main]]
-    name = "Posts"
-    url = "posts/"
-    weight = 10
+[[menu.main]]
+name = "Posts"
+url = "posts/"
+weight = 10
 
-  # [[menu.main]]
-  #   name = "About"
-  #   url = "about-hugo/"
-  #   weight = 20
+# [[menu.main]]
+#   name = "About"
+#   url = "about-hugo/"
+#   weight = 20
 
 [markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true  # This allows HTML in markdown
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true # This allows HTML in markdown
 
 [security]
-  [security.funcs]
-    getenv = ['^HUGO_', '^VERCEL_']  # Allow Hugo to access these environment variables
+[security.funcs]
+getenv = [
+  '^HUGO_',
+  '^VERCEL_',
+] # Allow Hugo to access these environment variables
+
