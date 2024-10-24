@@ -237,6 +237,6 @@ Looking at the ratings, the LLM was instructed to give a quality rating to each 
 
 The data reveals nuanced findings: Claude offers significant advantages for complex interactions, though it's not universally superior to GPT-4o. Intercom's switch makes strategic sense given Claude's ability to improve their most challenging support cases.
 
-While our testing framework provides valuable baseline comparisons, it's crucial to note that Intercom's implementation likely goes far beyond these fundamentals. Their ML team can optimize prompts, enhance document retrieval, and fine-tune system components to amplify Claude's strengths.
+Our testing here is only the start; a framework that provides valuable baseline comparisons. It's crucial to note that Intercom's team are likely spending a lot of time on testing and improving their implementation. Their ML team can optimize prompts, enhance document retrieval, and fine-tune system components to amplify Claude's strengths.
 
 The key lesson? Model selection alone isn't enough - success requires deep understanding of each model's behaviors and limitations. As the AI landscape evolves, the ability to conduct representative testing will be crucial for teams to make data-driven decisions and iterate effectively. At Reva, we are working to build out tooling and expertise that helps teams, whether big or small, measure and improve their AI performance, and you can find out more about us [here](tryreva.com).
