@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './styles.css';
 
 const Expandable = ({ title, content }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -9,14 +10,10 @@ const Expandable = ({ title, content }) => {
         {title}
       </h3>
       
-      <div className="prose-container">
-        {isExpanded && (
-          <div 
-            className="prose prose-invert max-w-none prose-p:my-2 prose-ul:my-2 prose-ol:my-2 prose-li:my-1 mb-5"
-            dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br>') }}
-          />
-        )}
-      </div>
+      <div 
+          className="expandable-content text-gray-300 mt-4"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
 
       <button 
         onClick={() => setIsExpanded(!isExpanded)}
