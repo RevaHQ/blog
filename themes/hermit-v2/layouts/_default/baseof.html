@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html lang="{{.Site.LanguageCode}}">
 <head>
+	<link rel="stylesheet" href="/js/assets/tailwindglobal.css">
+
 {{- if .Site.Params.googleTagManager -}}{{- partial "googleTagManager_head.html" . -}}{{- end -}}
 {{- partial "analytics.html" . -}}
 {{- partial "site-meta.html" . -}}

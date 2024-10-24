@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 
-const components = ['metricscomparison'];
+const components = ['metricscomparison', 'tailwindglobal', 'quoteblock', 'expandable'];
 
 export default defineConfig({
   plugins: [
@@ -33,10 +33,11 @@ export default defineConfig({
         ])
       ),
       output: {
-        entryFileNames: '[name].js',
+        entryFileNames: 'assets/[name].js',
+        assetFileNames: 'assets/[name][extname]',
         dir: '../static/js',
         format: 'es',
-        inlineDynamicImports: false
+        inlineDynamicImports: false,
       }
     },
     minify: 'terser',
