@@ -12,9 +12,4 @@ tags:
 
 Plain text here
 
-## Header 2
-{{< full-width >}}
-{{< metrics-comparison >}}
-{{< /full-width >}}
-
 ### Header 3
