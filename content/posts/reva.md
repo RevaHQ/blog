@@ -41,3 +41,9 @@ Remember, the "Let Fin answer" step will only trigger after a customer has sent 
 
 I hope this information helps clarify how to use Fin AI Agent alongside your existing Workflows. If you have any more questions or need further assistance, please don't hesitate to ask. We're here to help you get the most out of your Intercom setup!
 {{< /expandable >}}
+
+# Results
+
+{{< full-width >}}
+{{< metrics-comparison >}}
+{{< /full-width >}}

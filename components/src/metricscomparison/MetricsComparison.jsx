@@ -1,3 +1,5 @@
+import { useRef, useState, useEffect } from 'react';
+
 const ModelCard = ({ model, isBaseline }) => {
   return (
     <div className="bg-[#1a1a1a] rounded-xl px-4 py-5 w-[189px] h-[130px] flex flex-col">
@@ -41,6 +43,8 @@ const ModelCard = ({ model, isBaseline }) => {
  };
 
 const MetricsComparison = () => {
+
+
   const baselineMetrics = [
     { 
       name: "Tokens",
@@ -163,30 +167,72 @@ const MetricsComparison = () => {
       metrics: gptMiniMetrics,
     },
   ];
+  
+  const scrollContainerRef = useRef(null);
+  const [hasMoreToScroll, setHasMoreToScroll] = useState(true);
+
+  useEffect(() => {
+    const checkScroll = () => {
+      if (scrollContainerRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+        
+        
+        const modelCardWidth = 189;
+        const metricCardWidth = 122;
+        const gap = 8;
+        const padding = 16;
+        const availableWidth = clientWidth - modelCardWidth - gap - padding;
+        const visibleMetrics = Math.floor(availableWidth / (metricCardWidth + gap));
+
+        
+        const totalMetrics = models[0].metrics.length; 
+        const hasMoreMetrics = totalMetrics > visibleMetrics;
+        
+        const isNearEnd = scrollWidth - (scrollLeft + clientWidth) < 40;
+        setHasMoreToScroll(hasMoreMetrics && !isNearEnd);
+      }
+    };
+
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.addEventListener('scroll', checkScroll);
+      window.addEventListener('resize', checkScroll);
+      // Initial check
+      checkScroll();
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener('scroll', checkScroll);
+        window.removeEventListener('resize', checkScroll);
+      }
+    };
+  }, []);
 
   return (
     <div className="flex justify-center w-full">
-      <div className="max-w-[calc(100vw-48px)]">
-        <div className="overflow-x-auto pr-[36px] -mr-[36px]">
-          <div className="min-w-min pb-4 bg-[#262626] flex justify-center">
+      <div className="w-full">
+        <div className="overflow-x-auto -ml-[1rem] -mr-[1rem]" ref={scrollContainerRef}>
+          <div className="min-w-min pb-4 bg-[#262626]">
             <div className="space-y-2">
               {models.map((item, index) => (
                 <div
                   key={index}
-                  className="flex gap-2"
-                  style={{
-                    width: `calc(${189 + (item.metrics.length * 122)}px + ${(item.metrics.length + 1) * 8}px - 37px)`
-                  }}
+                  className="flex gap-2 pl-[1rem]"
                 >
                   <ModelCard model={item.model} isBaseline={item.isBaseline} />
-                  {item.metrics.map((metric, metricIndex) => (
-                    <MetricCard
-                      key={metricIndex}
-                      title={metric.name}
-                      metric={metric.metrics}
-                      isBaseline={item.isBaseline}
-                    />
-                  ))}
+                  <div className="flex gap-2">
+                    {item.metrics.map((metric, metricIndex) => (
+                      <MetricCard
+                        key={metricIndex}
+                        title={metric.name}
+                        metric={metric.metrics}
+                        isBaseline={item.isBaseline}
+                      />
+                    ))}
+                    {/* Use scroll-based state for peek effect */}
+                    <div className={`shrink-0 ${hasMoreToScroll ? 'w-[40px]' : 'w-[10px]'}`} />
+                  </div>
                 </div>
               ))}
             </div>
