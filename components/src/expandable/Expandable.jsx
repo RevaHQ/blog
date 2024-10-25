@@ -14,7 +14,7 @@ const Expandable = ({ title, content }) => {
 
   return (
     <div className="my-8 bg-[#1E201F] py-[20px] px-[16px] rounded-lg">
-      <h3 className="text-[19px] leading-[2px] font-bold text-[#0FC679]">
+      <h3 onClick={() => setIsExpanded(!isExpanded)} className="!text-[19px] leading-[2px] font-bold text-[#0FC679] cursor-pointer">
         {title}
       </h3>
       
@@ -24,12 +24,19 @@ const Expandable = ({ title, content }) => {
         dangerouslySetInnerHTML={{ __html: decodedContent }}
       />}
 
-      <button 
-        onClick={() => setIsExpanded(!isExpanded)}
-        className={`font-normal text-[16px] leading-[13px] hover:opacity-80 ${isExpanded ? '!text-[#0FC679]' : '!text-[#979797]'}`}
-      >
-        {isExpanded ? 'Hide full response' : 'View full response'}
-      </button>
+<button 
+  onClick={() => setIsExpanded(!isExpanded)}
+  className={`font-normal text-[16px] leading-[13px] hover:opacity-80 inline-flex items-center gap-1 cursor-pointer ${
+    isExpanded ? '!text-[#0FC679]' : '!text-[#979797]'
+  }`}
+>
+  {isExpanded ? 'Hide full response' : (
+    <>
+      View full response →
+      
+    </>
+  )}
+</button>
     </div>
   );
 };
