@@ -211,9 +211,9 @@ const MetricsComparison = () => {
 
   return (
     <div className="flex justify-center w-full">
-      <div className="w-full">
+      <div className="w-full max-w-[1600px] mx-auto">
         <div className="overflow-x-auto -ml-[1rem] -mr-[1rem]" ref={scrollContainerRef}>
-          <div className="min-w-min pb-4 bg-[#262626]">
+          <div className="min-w-min pb-4 bg-[#262626] flex justify-center">
             <div className="space-y-2">
               {models.map((item, index) => (
                 <div
