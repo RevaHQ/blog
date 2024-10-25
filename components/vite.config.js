@@ -2,13 +2,12 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 
-const components = ['metricscomparison'];
+const components = ['metricscomparison', 'tailwindglobal', 'quoteblock', 'expandable'];
 
 export default defineConfig({
   plugins: [
     react({
       fastRefresh: true,
-      // Add these explicit refresh options
       include: "**/*.jsx",
       exclude: "/node_modules/**",
     })
@@ -34,9 +33,11 @@ export default defineConfig({
         ])
       ),
       output: {
-        entryFileNames: '[name].js',
+        entryFileNames: 'assets/[name].js',
+        assetFileNames: 'assets/[name][extname]',
         dir: '../static/js',
-        format: 'iife'
+        format: 'es',
+        inlineDynamicImports: false,
       }
     },
     minify: 'terser',

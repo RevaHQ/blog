@@ -1,0 +1,8 @@
+<div class="metrics-comparison-wrapper">
+  <div id="metricscomparison"></div>
+</div>
+{{ if eq hugo.Environment "development" }}
+    <script type="module" src="http://localhost:5173/src/metricscomparison/index.jsx"></script>
+  {{ else }}
+  <script type="module" src="/js/assets/metricscomparison.js"></script>
+  {{ end }}

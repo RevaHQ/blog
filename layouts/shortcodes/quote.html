@@ -1,0 +1,8 @@
+<div class="quote-block-wrapper">
+    <div id="quoteblock" data-text="{{ .Get `text` }}"></div>
+  </div>
+  {{ if eq hugo.Environment "development" }}
+    <script type="module" src="http://localhost:5173/src/quoteblock/index.jsx"></script>
+  {{ else }}
+    <script type="module" src="/js/assets/quoteblock.js"></script>
+  {{ end }}
