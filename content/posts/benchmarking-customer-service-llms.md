@@ -3,7 +3,7 @@ title: "Benchmarking Customer Service LLMs: Exploring Intercom's Switch from Ope
 date: 2024-10-23T11:00:00+01:00
 toc: false
 description: "In this post we explore in detail Intercom's switch from OpenAI to Anthropic"
-images: [https://blog.tryreva.com/benchmarking.webp]
+images: [https://assets.tryreva.com/benchmarking.webp]
 tags:
   - case_study
   - comparison
@@ -11,7 +11,7 @@ tags:
   - open_ai
 ---
 
-{{< figure src="https://blog.tryreva.com/benchmarking.webp" 
+{{< figure src="https://assets.tryreva.com/benchmarking.webp" 
     alt="Reva AI tooling - comparing OpenAI and Anthropic" 
 >}}
 
