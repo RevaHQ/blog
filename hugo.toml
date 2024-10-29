@@ -57,6 +57,10 @@ expiryDate = ["expiryDate"]
   # initialPublish = "Initally Posted on: "
   # human = ["single","posts"]
 
+  [services]
+  [services.googleAnalytics]
+  id = 'G-NG5MGX906W'
+
   # New parameters for environment handling
   production = false  # This will be true for production builds
   
