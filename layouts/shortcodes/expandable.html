@@ -1,5 +1,5 @@
 <div class="expandable-wrapper">
-  <div id="expandable" data-title="{{ .Get `title` }}" data-content="{{ .Inner | markdownify | safeHTMLAttr }}">
+  <div data-component="expandable" data-title="{{ .Get `title` }}" data-content="{{ .Inner | markdownify | safeHTMLAttr }}">
   </div>
 </div>
 {{ if eq hugo.Environment "development" }}

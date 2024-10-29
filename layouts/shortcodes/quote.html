@@ -1,5 +1,5 @@
 <div class="quote-block-wrapper">
-    <div id="quoteblock" data-text="{{ .Get `text` }}"></div>
+  <div data-component="quoteblock" data-text="{{ .Get `text` }}"></div>
   </div>
   {{ if eq hugo.Environment "development" }}
     <script type="module" src="http://localhost:5173/src/quoteblock/index.jsx"></script>

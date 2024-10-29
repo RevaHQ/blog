@@ -1,4 +1,6 @@
 {{/* Google Analytics 4, use UA-PROPERTY_ID */}}
-{{- if .Site.Config.Services.GoogleAnalytics.ID -}} 
+{{ $hostname := urls.Parse .Site.BaseURL }}
+{{ $isVercelPreview := strings.Contains $hostname.Host "vercel.app" }}
+{{- if and (.Site.Config.Services.GoogleAnalytics.ID) (not $isVercelPreview) -}}
 {{ template "_internal/google_analytics.html" . }}
-{{- end -}}
+{{- end }}

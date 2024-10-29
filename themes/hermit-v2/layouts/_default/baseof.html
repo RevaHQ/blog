@@ -21,6 +21,7 @@
 {{- if .Site.Params.googleTagManager -}}{{- partial "googleTagManager_head.html" . -}}{{- end -}}
 {{- partial "analytics.html" . -}}
 {{- partial "site-meta.html" . -}}
+{{- partial "enhanced-meta.html" . -}}
 {{ $author := (.Params.author | default .Site.Params.author.name) -}}<meta name="author" content="{{ $author }}">
 {{- with .Page.Params.description | default .Site.Params.description -}}<meta name="description" content="{{.}}">{{- end -}}
 {{- partial "structured-data.html" . -}}

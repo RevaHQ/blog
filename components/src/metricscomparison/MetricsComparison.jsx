@@ -77,6 +77,14 @@ const MetricsComparison = () => {
     { 
       name: "Sadness",
       metrics: { isBaseline: true, value: '0.02' }
+    },
+    { 
+      name: "Love",
+      metrics: { isBaseline: true, value: '0.0008' }
+    },
+    { 
+      name: "Fear",
+      metrics: { isBaseline: true, value: '0.018' }
     }
   ];
   
@@ -112,6 +120,14 @@ const MetricsComparison = () => {
     { 
       name: "Sadness",
       metrics: { change: '--', total: '0.05' }
+    },
+    { 
+      name: "Love",
+      metrics: { change: -0.0006, total: '0.01' }
+    },
+    { 
+      name: "Fear",
+      metrics: { change: -0.037, total: '0.056' }
     }
   ];
   
@@ -147,7 +163,15 @@ const MetricsComparison = () => {
     { 
       name: "Sadness",
       metrics: { change: '--', total: '0.03' }
-    }
+    },
+    { 
+      name: "Love",
+      metrics: { change: -0.0006, total: '0.01' }
+    },
+    { 
+      name: "Fear",
+      metrics: { change: -0.004, total: '0.02' }
+    }    
   ];
 
   const models = [
