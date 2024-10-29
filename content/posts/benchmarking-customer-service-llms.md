@@ -53,70 +53,65 @@ Claude responses are generally the longest of our three candidates, about 11 wor
 
 In the answers compared below, Claude is more wordy certainly, but we can see its output is more clear and explanatory, which Intercom would be right to classify as “deeper” in the context of a chatbot. Qualitatively this reads like a stronger response. Interestingly, when we dig in, we see GPT-4o offered incorrect information, “When a customer opens a new conversation and clicks on a reply button, they enter the Workflow, and Fin AI Agent will not trigger.” is not true, and Claude offered correct information.
 
-{{< details title="Claude 3.5 Sonnet's answer" >}}
+{{< expandable title="Claude 3.5 Sonnet's answer" >}}
 
-> Thank you for reaching out about setting up Fin AI Agent in your Messenger. I understand you're experiencing some conflicts with an existing Workflow and have questions about how the "Let Fin answer" step works. I'd be happy to help clarify this for you.
->
-> Based on the information in our support docs, here are a few key points that should help address your concerns:
->
-> 1. Workflow and Fin AI Agent conflicts: There are two main scenarios where conflicts can occur:
->
-> - When a customer sends their first message, Fin AI Agent takes priority over Workflows.
-> - When a customer opens a new conversation in the Messenger, the Workflow will be shown with reply buttons.
->
-> 2. Reply buttons and Fin AI Agent: You're correct that if a customer clicks on a reply button, they enter the Workflow, and Fin AI Agent won't fire. This is because choosing a reply button means the customer is following the Workflow path rather than asking an open-ended question.
-> 3. Disabled composer: If you disable the composer at the start of the Workflow, you're right that this will prevent Fin from firing. This is because Fin needs the customer to type a message to generate a response.
->
-> To avoid these conflicts and ensure Fin can still operate effectively, here are some suggestions:
->
-> 1. Remove the "Disable customer reply" option from the start of your Workflow. This allows customers to type their own messages, which Fin can then respond to.
-> 2. Add the "Let Fin answer" step later in your Workflow, preferably after a button that says "Ask question" or something similar. This gives customers a clear path to interact with Fin.
-> 3. Ensure that the audience targeting for your Workflow and Fin don't overlap, to prevent conflicts.
-> 4. If you want to use both the Workflow and Fin, consider adding a message action in your Workflow that prompts the customer to ask a question. This can then lead to the "Let Fin answer" step.
->
-> Remember, the "Let Fin answer" step will only trigger after a customer has sent a message in the conversation. So if you want Fin to respond after a button click, you'll need to add a prompt for the customer to type a question.
->
-> I hope this information helps clarify how to use Fin AI Agent alongside your existing Workflows. If you have any more questions or need further assistance, please don't hesitate to ask. We're here to help you get the most out of your Intercom setup!
+Thank you for reaching out about setting up Fin AI Agent in your Messenger. I understand you're experiencing some conflicts with an existing Workflow and have questions about how the "Let Fin answer" step works. I'd be happy to help clarify this for you.
 
-{{< /details >}}
-{{< details title="GPT-4o's answer" >}}
+Based on the information in our support docs, here are a few key points that should help address your concerns:
 
-> Hello! I'd be happy to help you with setting up the Fin AI Agent and resolving the conflicts you're experiencing with your existing Workflow.
->
-> To address your specific question about the "Let Fin answer" step and when Fin AI Agent will fire, here's what you need to know:
->
-> 1. **Workflow and Fin AI Agent Conflict:** When a customer opens a new conversation and clicks on a reply button, they enter the Workflow, and Fin AI Agent will not trigger. This is because the Workflow takes precedence in this scenario.
-> 2. **Composer Settings:** If the composer is disabled at the start of the Workflow, customers won't have the option to type a message, which means Fin AI Agent won't be able to take over. To avoid this, you should:
->
-> - Remove the "Disable customer reply" option at the start of the Workflow. This allows customers to type their questions, enabling Fin AI Agent to respond.
-> - Consider adding a Fin step later in your Workflow, ideally after a button that prompts the customer to "Ask a question."
->
-> 3. **Using the "Let Fin answer" Step:** This step should be used to hand over the conversation to Fin AI Agent after a customer has sent a message. If you'd like a reply button to lead to a "Let Fin answer" step, ensure you include a message action prompting the customer to engage further.
-> 4. **Audience Targeting:** Ensure that the audience targeting for both the Workflow and Fin AI Agent do not overlap, to prevent conflicts.
->
-> By following these suggestions, you should be able to integrate Fin AI Agent smoothly with your existing Workflows and avoid any conflicts. If you have any more questions or need further assistance, feel free to ask!
+1. Workflow and Fin AI Agent conflicts: There are two main scenarios where conflicts can occur:
 
-{{< /details >}}
-{{< details title="GPT-4o-mini's answer" >}}
+- When a customer sends their first message, Fin AI Agent takes priority over Workflows.
+- When a customer opens a new conversation in the Messenger, the Workflow will be shown with reply buttons.
 
-> Hi there! I'd be happy to help you with setting up the Fin AI Agent in your Messenger and understanding how to avoid conflicts with your existing Workflow.
->
-> When you use the "Let Fin answer" step in your Workflow, it's important to consider how it interacts with customer input and the Workflow itself. If you disable the composer at the start of the Workflow, customers will not have the option to type their questions. In this case, if they click on a reply button, they will enter the Workflow, and the Fin AI Agent will not fire.
->
-> Here's a breakdown to clarify:
->
-> - **When a customer opens a new conversation**: The Workflow with reply buttons will show up. If the customer clicks a reply button, they will enter that Workflow, and Fin will not respond.
-> - **If the composer is left open**: Customers can type their questions, and Fin AI Agent will take over, bypassing the Workflow entirely.
->
-> To ensure that Fin can respond, you can try the following:
->
-> 1. **Remove the "Disable customer reply" option**: This allows customers to type in their questions, enabling Fin to respond.
-> 2. **Position the "Let Fin answer" step later in the Workflow**: Consider adding it after a button that prompts users to ask a question.
-> 3. **Check audience targeting**: Make sure that the audience rules for the Workflow and Fin AI Agent do not overlap, as this can cause unexpected behavior.
->
-> By making these adjustments, you should be able to set up the Fin AI Agent effectively without conflicts with your existing Workflow. If you have any further questions or need more assistance, feel free to ask!
+2. Reply buttons and Fin AI Agent: You're correct that if a customer clicks on a reply button, they enter the Workflow, and Fin AI Agent won't fire. This is because choosing a reply button means the customer is following the Workflow path rather than asking an open-ended question.
+3. Disabled composer: If you disable the composer at the start of the Workflow, you're right that this will prevent Fin from firing. This is because Fin needs the customer to type a message to generate a response.
 
-{{< /details >}}
+To avoid these conflicts and ensure Fin can still operate effectively, here are some suggestions:
+
+1. Remove the "Disable customer reply" option from the start of your Workflow. This allows customers to type their own messages, which Fin can then respond to.
+2. Add the "Let Fin answer" step later in your Workflow, preferably after a button that says "Ask question" or something similar. This gives customers a clear path to interact with Fin.
+3. Ensure that the audience targeting for your Workflow and Fin don't overlap, to prevent conflicts.
+4. If you want to use both the Workflow and Fin, consider adding a message action in your Workflow that prompts the customer to ask a question. This can then lead to the "Let Fin answer" step.
+
+Remember, the "Let Fin answer" step will only trigger after a customer has sent a message in the conversation. So if you want Fin to respond after a button click, you'll need to add a prompt for the customer to type a question.
+
+I hope this information helps clarify how to use Fin AI Agent alongside your existing Workflows. If you have any more questions or need further assistance, please don't hesitate to ask. We're here to help you get the most out of your Intercom setup!
+{{< /expandable >}}
+{{< expandable title="GPT-4o's answer" >}}
+Hello! I'd be happy to help you with setting up the Fin AI Agent and resolving the conflicts you're experiencing with your existing Workflow.
+
+To address your specific question about the "Let Fin answer" step and when Fin AI Agent will fire, here's what you need to know:
+
+1. **Workflow and Fin AI Agent Conflict:** When a customer opens a new conversation and clicks on a reply button, they enter the Workflow, and Fin AI Agent will not trigger. This is because the Workflow takes precedence in this scenario.
+2. **Composer Settings:** If the composer is disabled at the start of the Workflow, customers won't have the option to type a message, which means Fin AI Agent won't be able to take over. To avoid this, you should:
+
+- Remove the "Disable customer reply" option at the start of the Workflow. This allows customers to type their questions, enabling Fin AI Agent to respond.
+- Consider adding a Fin step later in your Workflow, ideally after a button that prompts the customer to "Ask a question."
+
+3. **Using the "Let Fin answer" Step:** This step should be used to hand over the conversation to Fin AI Agent after a customer has sent a message. If you'd like a reply button to lead to a "Let Fin answer" step, ensure you include a message action prompting the customer to engage further.
+4. **Audience Targeting:** Ensure that the audience targeting for both the Workflow and Fin AI Agent do not overlap, to prevent conflicts.
+
+By following these suggestions, you should be able to integrate Fin AI Agent smoothly with your existing Workflows and avoid any conflicts. If you have any more questions or need further assistance, feel free to ask!
+{{< /expandable >}}
+{{< expandable title="GPT-4o-mini's answer" >}}
+Hi there! I'd be happy to help you with setting up the Fin AI Agent in your Messenger and understanding how to avoid conflicts with your existing Workflow.
+
+When you use the "Let Fin answer" step in your Workflow, it's important to consider how it interacts with customer input and the Workflow itself. If you disable the composer at the start of the Workflow, customers will not have the option to type their questions. In this case, if they click on a reply button, they will enter the Workflow, and the Fin AI Agent will not fire.
+
+Here's a breakdown to clarify:
+
+- **When a customer opens a new conversation**: The Workflow with reply buttons will show up. If the customer clicks a reply button, they will enter that Workflow, and Fin will not respond.
+- **If the composer is left open**: Customers can type their questions, and Fin AI Agent will take over, bypassing the Workflow entirely.
+
+To ensure that Fin can respond, you can try the following:
+
+1. **Remove the "Disable customer reply" option**: This allows customers to type in their questions, enabling Fin to respond.
+2. **Position the "Let Fin answer" step later in the Workflow**: Consider adding it after a button that prompts users to ask a question.
+3. **Check audience targeting**: Make sure that the audience rules for the Workflow and Fin AI Agent do not overlap, as this can cause unexpected behavior.
+
+By making these adjustments, you should be able to set up the Fin AI Agent effectively without conflicts with your existing Workflow. If you have any further questions or need more assistance, feel free to ask!
+{{< /expandable >}}
 
 ## Sentiment
 
