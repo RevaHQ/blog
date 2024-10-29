@@ -2,14 +2,18 @@
 title: "Benchmarking Customer Service LLMs: Exploring Intercom's Switch from OpenAI to Anthropic"
 date: 2024-10-23T11:00:00+01:00
 toc: false
-description: "In this post we exlore in detail Intercom's Switch from OpenAI to Anthropic"
-images:
+description: "In this post we explore in detail Intercom's switch from OpenAI to Anthropic"
+images: [https://blog.tryreva.com/benchmarking.webp]
 tags:
   - case_study
   - comparison
   - anthropic
   - open_ai
 ---
+
+{{< figure src="https://blog.tryreva.com/benchmarking.webp" 
+    alt="Reva AI tooling - comparing OpenAI and Anthropic" 
+>}}
 
 Earlier this month, Intercom announced the release of their latest product, Fin 2, an update to their customer service chatbot that has been helping their customers offer support by answering customer questions since last year.
 
