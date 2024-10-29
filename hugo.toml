@@ -1,6 +1,6 @@
 baseURL = '/'  # This will be overridden by --baseURL flag
 languageCode = 'en-us'
-title = 'Reva'
+title = 'Reva | Outcome-driven AI strategy'
 theme = 'hermit-v2'
 
 copyright = "Reva"
@@ -17,19 +17,21 @@ expiryDate = ["expiryDate"]
 
 [params.author]
   name = "Reva"
-  # about = "LLM Testing and Data Synthesis"
+  # about = "We will help you build a solid foundation for your business to use AI not for the sake of it, but in a way that works for your business and your customers."
 
 [params]
+  # New Meta and Social Media Parameters
+  description = "Many businesses invest in AI without seeing real returns. Reva helps you use the latest and greatest advancements to help your business get the best outcomes for your tasks."
+  # images = ["/images/default-social.jpg"]
+  twitter = "@TryRevaAI"
+  
+  # Existing Parameters
   dateform        = "Jan 2, 2006"
   dateformShort   = "Jan 2"
   dateformNum     = "2006-01-02"
   dateformNumTime = "2006-01-02 15:04 -0700"
 
-  # description = "CHANGE ME SITE DESCRIPTION"
-  # images = [""]
   themeColor = "#1E201F"
-
-  #homeSubtitle = "CHANGE ME HOME SUBTITLE"
   footerCopyright = "Reva"
   # bgImg = ""
   # gitUrl = "https://github.com/1bl4z3r/hermit-V2/tree/staging"
