@@ -23,9 +23,7 @@ To compare the potential performance of models many teams go on vibes, having ad
 
 As a first attempt at evaluating the models, we might get hard data by testing them on a classification task. For example, we can use a small dataset of 400 emails (synthesised for this test, available on [HuggingFace](https://huggingface.co/datasets/RevaHQ/data-phishing-detection)), known to be either genuine or phishing, and see if each LLM can correctly identify them. Doing this, we find Claude 3.5 Sonnet achieved 85% accuracy, which was the same as a locally-run Llama3.1-7B, lower than the GPT-4o score of 87.5% and GPT-4o-mini, which scored 86.25%. So is Claude worse? Well, the result is a reliable indication of the model setup, but this is not a suitable test of a customer support agent. LLMs are extremely flexible tools, but good performance on one task is not a guarantee of good performance on another.
 
-{{< pullquote >}}
-We should really test these models on a task like the sort of support work a customer support agent does.
-{{< /pullquote >}}
+{{< quote text="We should really test these models on a task like the sort of support work a customer support agent does." >}}
 
 # A Task Like Fin
 
@@ -51,7 +49,7 @@ Our backtesting approach makes it easy to see the quantitative, aggregate data t
 
 Claude responses are generally the longest of our three candidates, about 11 words more than GPT-4o on average, or 5 more than GPT-4o-mini. Is this what Intercom means by ‘deeper’? Let’s look at a specific example, both Claude and GPT-4o answering the same exact question:
 
-> I've been trying to set up Fin AI Agent in our Messenger, but I'm getting some conflicts with an existing Workflow. Can you help me understand how to use the "Let Fin answer" step to avoid this conflict? Specifically, what happens when a customer opens a new conversation and clicks on a reply button - does that mean Fin will never fire if the composer is disabled at the start of the Workflow?
+> I've been trying to set up Fin AI Agent in our Messenger, but I'm getting some conflicts with an existing Workflow. Can you help me understand how to use the 'Let Fin answer' step to avoid this conflict? Specifically, what happens when a customer opens a new conversation and clicks on a reply button - does that mean Fin will never fire if the composer is disabled at the start of the Workflow?
 
 In the answers compared below, Claude is more wordy certainly, but we can see its output is more clear and explanatory, which Intercom would be right to classify as “deeper” in the context of a chatbot. Qualitatively this reads like a stronger response. Interestingly, when we dig in, we see GPT-4o offered incorrect information, “When a customer opens a new conversation and clicks on a reply button, they enter the Workflow, and Fin AI Agent will not trigger.” is not true, and Claude offered correct information.
 
@@ -226,9 +224,7 @@ Claude wrote two responses that weren't labelled as either resolving or not reso
 This seems to be a case where back-and-forth conversation may provide finality, so it's hard to comment on quality. These were both rated 0, and will be included in rating analysis as such.
 {{< /details >}}
 
-{{< pullquote >}}
-...there are fewer unhelpful responses from Claude than GPT-4o, which may be a good baseline to build from, with better failures than GPT-4o. In short, the bad experience with Claude isn't as bad as the bad experience with GPT-4o
-{{< /pullquote >}}
+{{< quote text="...there are fewer unhelpful responses from Claude than GPT-4o, which may be a good baseline to build from, with better failures than GPT-4o. In short, the bad experience with Claude isn't as bad as the bad experience with GPT-4o" >}}
 
 Looking at the ratings, the LLM was instructed to give a quality rating to each response. But here we find what may be one of the main reasons Intercom have chosen to go with Claude as opposed to GPT-4o. As shown below, there are fewer unhelpful responses from Claude than GPT-4o, which may be a good baseline to build from, with better failures than GPT-4o. In short, the bad experience with Claude isn't as bad as the bad experience with GPT-4o, which is hugely important over millions of support conversations. A rising tide of improving quality on average, rather than focusing on a better experience for the high end.
 
