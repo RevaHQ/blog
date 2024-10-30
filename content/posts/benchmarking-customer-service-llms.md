@@ -148,6 +148,7 @@ What’s interesting here is that it’s clear the emotion is mild in all three 
 > In the meantime, is there any other way I can assist you with your Workflow setup?
 
 {{< /expandable >}}
+
 {{< expandable title="GPT-4o's answer" >}}
 
 > Hello! I'd be happy to help you with creating a Custom Action in your Workflow. It sounds like you're at the step where you need to connect to your third-party support tool API.
@@ -165,6 +166,7 @@ What’s interesting here is that it’s clear the emotion is mild in all three 
 > Let me know if you have any more questions or need further assistance! 😊
 
 {{< /expandable >}}
+
 {{< expandable title="GPT-4o-mini's answer" >}}
 
 > Hi there!
@@ -198,7 +200,7 @@ We used Llama 3 7B to judge each model’s response to 100 samples from our data
 
 Claude wrote two responses that weren't labelled as either resolving or not resolving, one of which looks like this:
 
-{{< expandable title="Claude 3.5 Sonnet's insufficient answer" >}}
+{{< expandable title="Claude's insufficient answer" >}}
 
 > Question:
 > Hi there, I'm trying to customize Fin's name and profile picture, but when I click on the 'Save changes' button, it just doesn't seem to be applying those changes to the Messenger. Can you help me figure out why this might be happening?
