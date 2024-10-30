@@ -13,9 +13,10 @@ tags:
 
 {{< figure src="https://assets.tryreva.com/benchmarking.webp"
 alt="Reva AI tooling - comparing OpenAI and Anthropic"
->}}
 
-Earlier this month, in a pivotal shift that signals the evolving landscape of AI, Intercom has bet big on Anthropic, replacing OpenAI in their newly launched Fin 2 chatbot. Fin 2 is [powered by Anthropic's Claude 3.5 Sonnet](https://www.intercom.com/blog/fin-2-powered-by-anthropic-claude-llm/), a big change as the original Fin was [powered by GPT4](https://www.intercom.com/blog/announcing-intercoms-new-ai-chatbot/).
+> }}
+
+Earlier this month, in a pivotal shift that signals the evolving landscape of AI, Intercom bet big on Anthropic, replacing OpenAI in their newly launched Fin 2 chatbot. Fin 2 is [powered by Anthropic's Claude 3.5 Sonnet](https://www.intercom.com/blog/fin-2-powered-by-anthropic-claude-llm/), a big change as the original Fin was [powered by GPT4](https://www.intercom.com/blog/announcing-intercoms-new-ai-chatbot/).
 
 An obvious question would be "how big of an impact could they expect to see in the quality of their product?". We can't know exactly the system Intercom has worked to build, so when they say “With Claude, Fin answers more questions, more accurately, with more depth, and more speed”, we don’t have real technical context on that impact, from the outside. Focusing on accuracy, can we find a way to empirically compare the models they likely used (either GPT-4o or GPT-4o-mini) to the model they've moved to (Claude Sonnet 3.5)? These tests were conducted prior to the Oct 22nd [update](https://www.anthropic.com/news/3-5-models-and-computer-use) of Claude 3.5 Sonnet and represent the information Intercom had available to them to make their change.
 
