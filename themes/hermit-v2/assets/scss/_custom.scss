@@ -95,3 +95,43 @@ footer#site-footer {
 .expandable-wrapper h3 {
     margin: 16px 0 !important;
 }
+.post-image {
+    margin: 0;
+}
+
+.post-image img {
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 1rem 0 0 0;
+}
+
+.bg-img {
+    display: none !important;
+    background-image: none !important;
+}
+
+#share-links {
+    background-color: #262626 !important;
+}
+
+#share-links ul {
+    font-size: inherit !important;
+}
+
+.site-branding {
+    font-size: inherit !important;
+}
+
+.site-branding img {
+    width: 32px;
+    height: 32px;
+    /* Optional: add these for smoother scaling */
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+/* Optional: add hover effect */
+.site-branding img:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
