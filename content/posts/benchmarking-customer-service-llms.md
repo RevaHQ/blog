@@ -1,6 +1,6 @@
 ---
 title: "Benchmarking Customer Service LLMs: Exploring Intercom's Switch from OpenAI to Anthropic"
-date: 2024-10-23T11:00:00+01:00
+date: 2024-10-30T11:00:00+01:00
 toc: false
 description: "In this post we explore in detail Intercom's switch from OpenAI to Anthropic"
 images: [https://assets.tryreva.com/benchmarking.webp]
@@ -11,13 +11,12 @@ tags:
   - open_ai
 ---
 
-{{< figure src="https://assets.tryreva.com/benchmarking.webp" 
-    alt="Reva AI tooling - comparing OpenAI and Anthropic" 
+{{< figure src="https://assets.tryreva.com/benchmarking.webp"
+alt="Reva AI tooling - comparing OpenAI and Anthropic"
+
 >}}
 
-Earlier this month, Intercom announced the release of their latest product, Fin 2, an update to their customer service chatbot that has been helping their customers offer support by answering customer questions since last year.
-
-On the technical side, Intercom shared one of the big changes; Fin 2 is [powered by Anthropic's Claude 3.5 Sonnet](https://www.intercom.com/blog/fin-2-powered-by-anthropic-claude-llm/), a big change as the original Fin was [powered by GPT4](https://www.intercom.com/blog/announcing-intercoms-new-ai-chatbot/).
+Earlier this month, in a pivotal shift that signals the evolving landscape of AI, Intercom bet big on Anthropic, replacing OpenAI in their newly launched Fin 2 chatbot. Fin 2 is [powered by Anthropic's Claude 3.5 Sonnet](https://www.intercom.com/blog/fin-2-powered-by-anthropic-claude-llm/), a big change as the original Fin was [powered by GPT4](https://www.intercom.com/blog/announcing-intercoms-new-ai-chatbot/).
 
 An obvious question would be "how big of an impact could they expect to see in the quality of their product?". We can't know exactly the system Intercom has worked to build, so when they say “With Claude, Fin answers more questions, more accurately, with more depth, and more speed”, we don’t have real technical context on that impact, from the outside. Focusing on accuracy, can we find a way to empirically compare the models they likely used (either GPT-4o or GPT-4o-mini) to the model they've moved to (Claude Sonnet 3.5)? These tests were conducted prior to the Oct 22nd [update](https://www.anthropic.com/news/3-5-models-and-computer-use) of Claude 3.5 Sonnet and represent the information Intercom had available to them to make their change.
 
@@ -47,7 +46,7 @@ Since we don’t have access to Fin’s systems or data, we need to synthesise s
 {{< metrics-comparison >}}
 {{< /full-width >}}
 
-Our backtesting approach makes it easy to see the quantitative, aggregate data that summarises key strengths and weaknesses of each model on the task, as well as dive into individual generations, to see the qualitative performance of each model on a single example, much like an eval. The readability of answers from all candidates is roughly the same, all producing high-school-level text, though Claude is very slightly in sophomore rather than freshman territory. That increased complexity coupled with longer answers might be an advantage for Claude. Again, the task dictates what is truly important, so let’s take a look at some of the signals we are seeing in detail.
+Our backtesting approach makes it easy to see the quantitative, aggregate data that summarises key strengths and weaknesses of each model on the task (shown above), as well as dive into individual generations, to see the qualitative performance of each model on a single example, much like an eval. The readability of answers from all candidates is roughly the same, all producing high-school-level text, though Claude is very slightly in sophomore rather than freshman territory. That increased complexity coupled with longer answers might be an advantage for Claude. Again, the task dictates what is truly important, so let’s take a look at some of the signals we are seeing in detail.
 
 ## Response Length
 
@@ -125,7 +124,7 @@ On average Claude shows more emotion, whether joy, sadness, anger or fear. The d
 
 What’s interesting here is that it’s clear the emotion is mild in all three responses, Claude likely registers as the most fearful seemingly because it is mirroring the customer’s annoyance back to them (“I want to reassure you that it's completely normal to feel unsure about API details, especially if the person who set it up is no longer with the company. We can work through this together!”). Also notice that Claude goes in-depth on the steps required, and GPT-4o would require more information.
 
-{{< details title="Claude 3.5 Sonnet's answer" >}}
+{{< expandable title="Claude 3.5 Sonnet's answer" >}}
 
 > Hello! Thank you for reaching out about setting up a Custom Action in your Workflow. I understand you're having trouble with the API endpoint for your third-party support tool. Let me try to help guide you through this process.
 >
@@ -148,8 +147,9 @@ What’s interesting here is that it’s clear the emotion is mild in all three 
 >
 > In the meantime, is there any other way I can assist you with your Workflow setup?
 
-{{< /details >}}
-{{< details title="GPT-4o's answer" >}}
+{{< /expandable >}}
+
+{{< expandable title="GPT-4o's answer" >}}
 
 > Hello! I'd be happy to help you with creating a Custom Action in your Workflow. It sounds like you're at the step where you need to connect to your third-party support tool API.
 >
@@ -165,8 +165,9 @@ What’s interesting here is that it’s clear the emotion is mild in all three 
 >
 > Let me know if you have any more questions or need further assistance! 😊
 
-{{< /details >}}
-{{< details title="GPT-4o-mini's answer" >}}
+{{< /expandable >}}
+
+{{< expandable title="GPT-4o-mini's answer" >}}
 
 > Hi there!
 >
@@ -189,7 +190,7 @@ What’s interesting here is that it’s clear the emotion is mild in all three 
 >
 > Feel free to reach out if you have more questions or need further assistance. Happy building! 😊
 
-{{< /details >}}
+{{< /expandable >}}
 
 # LLM-as-Judge
 
@@ -199,7 +200,7 @@ We used Llama 3 7B to judge each model’s response to 100 samples from our data
 
 Claude wrote two responses that weren't labelled as either resolving or not resolving, one of which looks like this:
 
-{{< details title="Claude 3.5 Sonnet's insufficient answer" >}}
+{{< expandable title="Claude's insufficient answer" >}}
 
 > Question:
 > Hi there, I'm trying to customize Fin's name and profile picture, but when I click on the 'Save changes' button, it just doesn't seem to be applying those changes to the Messenger. Can you help me figure out why this might be happening?
@@ -221,11 +222,11 @@ Claude wrote two responses that weren't labelled as either resolving or not reso
 > Is there anything else about customizing Fin that I can help you with?
 
 This seems to be a case where back-and-forth conversation may provide finality, so it's hard to comment on quality. These were both rated 0, and will be included in rating analysis as such.
-{{< /details >}}
+{{< /expandable >}}
 
 {{< quote text="...there are fewer unhelpful responses from Claude than GPT-4o, which may be a good baseline to build from, with better failures than GPT-4o. In short, the bad experience with Claude isn't as bad as the bad experience with GPT-4o" >}}
 
-Looking at the ratings, the LLM was instructed to give a quality rating to each response. But here we find what may be one of the main reasons Intercom have chosen to go with Claude as opposed to GPT-4o. As shown below, there are fewer unhelpful responses from Claude than GPT-4o, which may be a good baseline to build from, with better failures than GPT-4o. In short, the bad experience with Claude isn't as bad as the bad experience with GPT-4o, which is hugely important over millions of support conversations. A rising tide of improving quality on average, rather than focusing on a better experience for the high end.
+The LLM was instructed to give a quality rating to each response, and here we find what may be one of the main reasons Intercom have chosen to go with Claude as opposed to GPT-4o. As shown below, there are fewer unhelpful responses from Claude than GPT-4o, which may be a good baseline to build from, with better failures than GPT-4o. In short, the bad experience with Claude isn't as bad as the bad experience with GPT-4o, which is hugely important over millions of support conversations. A rising tide of improving quality on average, rather than focusing on a better experience for the high end.
 
 {{< full-width-image src="/images/rev_bar_chart.webp" alt="Three bar charts showing the distribution of answer quality for each of our three models. Claude's answers have a much higher floor than GPT-4o or GPT-4o-mini" >}}
 
