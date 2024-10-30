@@ -1,11 +1,15 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from "react";
 
 const ModelCard = ({ model, isBaseline }) => {
   return (
     <div className="bg-[#1a1a1a] rounded-xl px-4 py-5 w-[189px] h-[130px] flex flex-col">
-      <div className="text-[#EBEBEB] text-[14px] font-medium leading-[20px]">Model</div>
+      <div className="text-[#EBEBEB] text-[14px] font-medium leading-[20px]">
+        Model
+      </div>
       <div className="flex-grow flex flex-col justify-center">
-        <div className={`text-[24px] font-semibold ${isBaseline ? 'text-[#8B75B7]' : 'text-[#0FC679]'} leading-[32px]`}>
+        <div
+          className={`text-[24px] font-semibold ${isBaseline ? "text-[#8B75B7]" : "text-[#0FC679]"} leading-[32px]`}
+        >
           {model}
         </div>
       </div>
@@ -16,20 +20,26 @@ const ModelCard = ({ model, isBaseline }) => {
       )}
     </div>
   );
- };
- 
- const MetricCard = ({ title, metric, isBaseline }) => {
+};
+
+const MetricCard = ({ title, metric, isBaseline }) => {
   const formatChange = (value) => {
-    if (value === '--') return '--';
+    if (value === "--") return "--";
     const num = parseFloat(value);
     return num > 0 ? `+${num}` : num;
   };
- 
+
   return (
     <div className="bg-[#1a1a1a] rounded-xl px-4 py-5 w-[122px] h-[132px] flex flex-col shrink-0">
-      <div className="text-[#EBEBEB] text-[14px] font-medium leading-[20px]">{title}</div>
-      <div className={`flex-grow flex flex-col justify-center ${!isBaseline && '-mt-2'}`}>
-        <div className={`text-[24px] font-semibold ${isBaseline ? 'text-[#8B75B7]' : 'text-[#0FC679]'} leading-[32px]`}>
+      <div className="text-[#EBEBEB] text-[14px] font-medium leading-[20px]">
+        {title}
+      </div>
+      <div
+        className={`flex-grow flex flex-col justify-center ${!isBaseline && "-mt-2"}`}
+      >
+        <div
+          className={`text-[24px] font-semibold ${isBaseline ? "text-[#8B75B7]" : "text-[#0FC679]"} leading-[32px]`}
+        >
           {isBaseline ? metric.value : formatChange(metric.change)}
         </div>
         {!isBaseline && (
@@ -40,138 +50,136 @@ const ModelCard = ({ model, isBaseline }) => {
       </div>
     </div>
   );
- };
+};
 
 const MetricsComparison = () => {
-
-
   const baselineMetrics = [
-    { 
-      name: "Tokens",
-      metrics: { isBaseline: true, value: '269.3' }
-    },
-    { 
-      name: "Unique Words",
-      metrics: { isBaseline: true, value: '134' }
-    },
-    { 
+    {
       name: "Word Count",
-      metrics: { isBaseline: true, value: '207' }
+      metrics: { isBaseline: true, value: "207" },
     },
-    { 
+    {
+      name: "Tokens",
+      metrics: { isBaseline: true, value: "269.3" },
+    },
+    {
+      name: "Unique Words",
+      metrics: { isBaseline: true, value: "134" },
+    },
+    {
       name: "Readability",
-      metrics: { isBaseline: true, value: '9.66' }
+      metrics: { isBaseline: true, value: "9.66" },
     },
-    { 
+    {
       name: "Joy",
-      metrics: { isBaseline: true, value: '0.92' }
+      metrics: { isBaseline: true, value: "0.92" },
     },
-    { 
+    {
       name: "Anger",
-      metrics: { isBaseline: true, value: '0.02' }
+      metrics: { isBaseline: true, value: "0.02" },
     },
-    { 
+    {
       name: "Surprise",
-      metrics: { isBaseline: true, value: '0.003' }
+      metrics: { isBaseline: true, value: "0.003" },
     },
-    { 
+    {
       name: "Sadness",
-      metrics: { isBaseline: true, value: '0.02' }
+      metrics: { isBaseline: true, value: "0.02" },
     },
-    { 
+    {
       name: "Love",
-      metrics: { isBaseline: true, value: '0.0008' }
+      metrics: { isBaseline: true, value: "0.0008" },
     },
-    { 
+    {
       name: "Fear",
-      metrics: { isBaseline: true, value: '0.018' }
-    }
+      metrics: { isBaseline: true, value: "0.018" },
+    },
   ];
-  
+
   const claudeMetrics = [
-    { 
-      name: "Tokens",
-      metrics: { change: 14.2, total: '283.56' }
-    },
-    { 
-      name: "Unique Words",
-      metrics: { change: 2.7, total: '136.96' }
-    },
-    { 
+    {
       name: "Word Count",
-      metrics: { change: 10.9, total: '218.12' }
+      metrics: { change: 10.9, total: "218.12" },
     },
-    { 
+    {
+      name: "Tokens",
+      metrics: { change: 14.2, total: "283.56" },
+    },
+    {
+      name: "Unique Words",
+      metrics: { change: 2.7, total: "136.96" },
+    },
+    {
       name: "Readability",
-      metrics: { change: 0.58, total: '10.24' }
+      metrics: { change: 0.58, total: "10.24" },
     },
-    { 
+    {
       name: "Joy",
-      metrics: { change: -0.08, total: '0.84' }
+      metrics: { change: -0.08, total: "0.84" },
     },
-    { 
+    {
       name: "Anger",
-      metrics: { change: 0.02, total: '0.04' }
+      metrics: { change: 0.02, total: "0.04" },
     },
-    { 
+    {
       name: "Surprise",
-      metrics: { change: -0.001, total: '0.002' }
+      metrics: { change: -0.001, total: "0.002" },
     },
-    { 
+    {
       name: "Sadness",
-      metrics: { change: '--', total: '0.05' }
+      metrics: { change: 0.03, total: "0.05" },
     },
-    { 
+    {
       name: "Love",
-      metrics: { change: -0.0006, total: '0.01' }
+      metrics: { change: 0.0092, total: "0.01" },
     },
-    { 
+    {
       name: "Fear",
-      metrics: { change: -0.037, total: '0.056' }
-    }
+      metrics: { change: 0.037, total: "0.056" },
+    },
   ];
-  
+
   const gptMiniMetrics = [
-    { 
-      name: "Tokens",
-      metrics: { change: 6.5, total: '275.9' }
-    },
-    { 
-      name: "Unique Words",
-      metrics: { change: 1.17, total: '135.43' }
-    },
-    { 
+    {
       name: "Word Count",
-      metrics: { change: 5, total: '212' }
+      metrics: { change: 5, total: "212" },
     },
-    { 
+    {
+      name: "Tokens",
+      metrics: { change: 6.5, total: "275.9" },
+    },
+    {
+      name: "Unique Words",
+      metrics: { change: 1.17, total: "135.43" },
+    },
+    {
       name: "Readability",
-      metrics: { change: 0.2, total: '9.98' }
+      metrics: { change: 0.2, total: "9.98" },
     },
-    { 
+    {
       name: "Joy",
-      metrics: { change: -0.01, total: '0.907' }
+      metrics: { change: -0.013, total: "0.907" },
     },
-    { 
+    {
       name: "Anger",
-      metrics: { change: -0.01, total: '0.01' }
+      metrics: { change: -0.01, total: "0.01" },
     },
-    { 
+    {
       name: "Surprise",
-      metrics: { change: -0.002, total: '0.001' }
+      metrics: { change: -0.002, total: "0.001" },
     },
-    { 
+    {
       name: "Sadness",
-      metrics: { change: '--', total: '0.03' }
+      metrics: { change: -0.01, total: "0.03" },
     },
-    { 
+    {
       name: "Love",
-      metrics: { change: -0.0006, total: '0.01' }
+      metrics: { change: 0.0092, total: "0.01" },
     },
-    { 
+    {
       name: "Fear",
-      metrics: { change: -0.004, total: '0.02' }
-    }    
+      metrics: { change: 0.004, total: "0.02" },
+    },
   ];
 
   const models = [
@@ -191,27 +199,28 @@ const MetricsComparison = () => {
       metrics: gptMiniMetrics,
     },
   ];
-  
+
   const scrollContainerRef = useRef(null);
   const [hasMoreToScroll, setHasMoreToScroll] = useState(true);
 
   useEffect(() => {
     const checkScroll = () => {
       if (scrollContainerRef.current) {
-        const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-        
-        
+        const { scrollLeft, scrollWidth, clientWidth } =
+          scrollContainerRef.current;
+
         const modelCardWidth = 189;
         const metricCardWidth = 122;
         const gap = 8;
         const padding = 16;
         const availableWidth = clientWidth - modelCardWidth - gap - padding;
-        const visibleMetrics = Math.floor(availableWidth / (metricCardWidth + gap));
+        const visibleMetrics = Math.floor(
+          availableWidth / (metricCardWidth + gap),
+        );
 
-        
-        const totalMetrics = models[0].metrics.length; 
+        const totalMetrics = models[0].metrics.length;
         const hasMoreMetrics = totalMetrics > visibleMetrics;
-        
+
         const isNearEnd = scrollWidth - (scrollLeft + clientWidth) < 40;
         setHasMoreToScroll(hasMoreMetrics && !isNearEnd);
       }
@@ -219,16 +228,16 @@ const MetricsComparison = () => {
 
     const container = scrollContainerRef.current;
     if (container) {
-      container.addEventListener('scroll', checkScroll);
-      window.addEventListener('resize', checkScroll);
+      container.addEventListener("scroll", checkScroll);
+      window.addEventListener("resize", checkScroll);
       // Initial check
       checkScroll();
     }
 
     return () => {
       if (container) {
-        container.removeEventListener('scroll', checkScroll);
-        window.removeEventListener('resize', checkScroll);
+        container.removeEventListener("scroll", checkScroll);
+        window.removeEventListener("resize", checkScroll);
       }
     };
   }, []);
@@ -236,14 +245,14 @@ const MetricsComparison = () => {
   return (
     <div className="flex justify-center w-full">
       <div className="w-full max-w-[1600px] mx-auto">
-        <div className="overflow-x-auto -ml-[1rem] -mr-[1rem]" ref={scrollContainerRef}>
+        <div
+          className="overflow-x-auto -ml-[1rem] -mr-[1rem]"
+          ref={scrollContainerRef}
+        >
           <div className="min-w-min pb-4 bg-[#262626] flex justify-center">
             <div className="space-y-2">
               {models.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex gap-2 pl-[1rem]"
-                >
+                <div key={index} className="flex gap-2 pl-[1rem]">
                   <ModelCard model={item.model} isBaseline={item.isBaseline} />
                   <div className="flex gap-2">
                     {item.metrics.map((metric, metricIndex) => (
@@ -255,7 +264,9 @@ const MetricsComparison = () => {
                       />
                     ))}
                     {/* Use scroll-based state for peek effect */}
-                    <div className={`shrink-0 ${hasMoreToScroll ? 'w-[40px]' : 'w-[10px]'}`} />
+                    <div
+                      className={`shrink-0 ${hasMoreToScroll ? "w-[40px]" : "w-[10px]"}`}
+                    />
                   </div>
                 </div>
               ))}
@@ -268,3 +279,4 @@ const MetricsComparison = () => {
 };
 
 export default MetricsComparison;
+
