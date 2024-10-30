@@ -14,7 +14,7 @@ tags:
 {{< figure src="https://assets.tryreva.com/benchmarking.webp"
 alt="Reva AI tooling - comparing OpenAI and Anthropic"
 
-> }}
+>}}
 
 Earlier this month, in a pivotal shift that signals the evolving landscape of AI, Intercom bet big on Anthropic, replacing OpenAI in their newly launched Fin 2 chatbot. Fin 2 is [powered by Anthropic's Claude 3.5 Sonnet](https://www.intercom.com/blog/fin-2-powered-by-anthropic-claude-llm/), a big change as the original Fin was [powered by GPT4](https://www.intercom.com/blog/announcing-intercoms-new-ai-chatbot/).
 
