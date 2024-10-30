@@ -1,6 +1,6 @@
 ---
 title: "Benchmarking Customer Service LLMs: Exploring Intercom's Switch from OpenAI to Anthropic"
-date: 2024-10-3oT16:00:00+01:00
+date: 2024-10-30T11:00:00+01:00
 toc: false
 description: "In this post we explore in detail Intercom's switch from OpenAI to Anthropic"
 images: [https://assets.tryreva.com/benchmarking.webp]
