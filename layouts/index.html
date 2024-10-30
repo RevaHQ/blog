@@ -4,11 +4,9 @@
 
 {{ define "main" }}
 	<main class="site-main section-inner thin animated fadeIn faster">
-		<h1>{{ .Title }}</h1>
-		{{- if .Content }}
-		<div class="content">
-			{{ .Content }}
-		</div>
+		<h1><img src="https://assets.tryreva.com/reva_logo.png" /></h1>
+		{{- with .Site.Params.homeSubtitle }}
+		<p id="home-subtitle">{{.}}</p>
 		{{- end }}
 
 		{{- if and (ge (len (where .Site.Pages ".Params.pin" true)) 1) (.Site.Params.pinned) (not (in .Page.RelPermalink (or "tags" "categories"))) -}}
@@ -25,7 +23,7 @@
 			</ul>
 		</div>
 		{{- end -}}
-		{{- range .Data.Pages.GroupByDate "2006" }}
+		{{- range (where .Site.RegularPages "Type" "posts").GroupByDate "2006" }}
 		{{ $pages := len (.Pages) }}
 		{{ $pages_pin := len ( where .Pages ".Params.pin" "eq" true) }}
 		{{- if gt $pages $pages_pin -}}
@@ -40,7 +38,7 @@
 						{{ range first 1 .Params.images }}
 						<img src="{{ . }}" alt="{{ $.Title }}" style="max-width: 100%; height: auto;">
 						{{ end }}
-					</div>
+						</div>
 					</a>
 					{{- end }}
 					<a href="{{.Permalink}}">
@@ -51,12 +49,18 @@
 					<span class="post-description">{{ .Page.Params.description }}</span>
 					{{- end -}}
 				</li>
-				
 				{{- end }}
 			</ul>
 		</div>
 		{{- end -}}
 		{{- end }}
+
+		{{- with .Site.Params.socialLinks }}
+		<div id="home-social">
+			{{ partialCached "social-icons.html" . }}
+		</div>
+		{{- end }}
+        
 	</main>
 {{ end }}
 

@@ -1,6 +1,6 @@
 baseURL = '/'  # This will be overridden by --baseURL flag
 languageCode = 'en-us'
-title = 'Reva | Outcome-driven AI strategy'
+title = 'Reva'
 theme = 'hermit-v2'
 
 copyright = "Reva"
