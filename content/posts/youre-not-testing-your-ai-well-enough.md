@@ -14,9 +14,7 @@ alt="Reva AI tooling - Backtesting with Reva"
 
 >}}
 
-#
-
-The Challenge of Evaluating Large Language Models
+## The Challenge of Evaluating Large Language Models
 
 Large Language Models (LLMs) have revolutionised machine learning, offering unprecedented versatility across various tasks. However, this flexibility poses a significant challenge: how do we effectively evaluate LLMs to ensure they're suitable for specific applications? In a [prior post](https://blog.tryreva.com/posts/benchmarking-customer-service-llms/) we used large scale techniques to test an LLM change, here we’ll discuss the problem more generally.
 
