@@ -9,6 +9,11 @@ tags:
   - testing
 ---
 
+{{< figure src="https://assets.tryreva.com/backtesting.webp"
+alt="Reva AI tooling - Backtesting with Reva"
+
+>}}
+
 #
 
 The Challenge of Evaluating Large Language Models
