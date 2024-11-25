@@ -1,6 +1,6 @@
 ---
 title: "AI Product Development Lifecycle: tackling uncertainty"
-date: 2024-10-30T11:00:00+01:00
+date: 2024-11-25T11:00:00+01:00
 toc: false
 description: "In this post we discuss the shift in traditional product development when working with the uncertainty and capability of an LLM"
 images: [https://assets.tryreva.com/benchmarking.webp]
@@ -17,7 +17,8 @@ alt="Reva AI tooling - comparing OpenAI and Anthropic"
 
 ## Introduction
 
-Throughout my career I’ve been fortunate enough to work within great product and engineering teams, both as an Individual Contributor and Engineering leader, across organisations of varying size. And while processes change company-to-company depending on the context, the fundamental goal of shipping high quality software and impacting the product and customers remained at the core. 
+There are well-established and effective frameworks that companies adopt when building and shipping software. Whether it's a scrappy startup or a process-driven enterprise, there will be processes and methodologies in place to ensure cohesion and efficiency. While these processes will change company-to-company depending on context, the fundamental goal remains: shipping high-quality software that impacts products and customers.
+
 Most product teams adopt a development framework that typically follows this high-level flow:
 
 * **Opportunity assessment:** Do we feel this idea moves the cursor for our product and customer
@@ -64,7 +65,7 @@ Before deploying to production, ML and product leads can assess the change confi
 Teams also have high-quality datasets to use after each backtest that can then be used to train their model. 
 
 #### **Continuous Monitoring**
-* Once changes are pushed to production, continuous backtesting ensures teams have:
+Once changes are pushed to production, continuous backtesting ensures teams have:
 * Visibility on any degradation in model performance and output
 * Visibility on edge cases that were not identified during testing
 * Ability to track performance over time
