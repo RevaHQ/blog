@@ -12,7 +12,6 @@ tags:
 
 {{< figure src="https://assets.tryreva.com/benchmarking.webp"
 alt="Reva AI tooling - comparing OpenAI and Anthropic"
-
 >}}
 
 ## Introduction
