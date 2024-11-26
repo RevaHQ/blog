@@ -3,20 +3,18 @@ title: "AI Product Development Lifecycle: tackling uncertainty"
 date: 2024-11-25T11:00:00+01:00
 toc: false
 description: "In this post we discuss the shift in traditional product development when working with the uncertainty and capability of an LLM"
-images: [https://assets.tryreva.com/benchmarking.webp]
+images: [https://assets.tryreva.com/uncertainty.webp]
 tags:
   - workflow
   - product_development
   - testing
 ---
 
-{{< figure src="https://assets.tryreva.com/benchmarking.webp"
-alt="Reva AI tooling - comparing OpenAI and Anthropic"
+{{< figure src="https://assets.tryreva.com/uncertainty.webp"
+alt="Reva AI tooling - AI Product Development Lifecycle"
 >}}
 
-## Introduction
-
-There are well-established and effective frameworks that companies adopt when building and shipping software. Whether it's a scrappy startup or a process-driven enterprise, there will be processes and methodologies in place to ensure cohesion and efficiency. While these processes will change company-to-company depending on context, the fundamental goal remains: shipping high-quality software that impacts products and customers.
+There are well-established and effective frameworks that companies adopt when building and shipping software. Whether it's an early-stage startup, scaling startup or a larger enterprise, there will be processes in place (_or not!_) to ensure cohesion and efficiency. While these processes will change company-to-company depending on context, the fundamental goal should remain: _**ship high-quality software that impacts products and customers.**_
 
 Most product teams adopt a development framework that typically follows this high-level flow:
 
@@ -28,21 +26,21 @@ Most product teams adopt a development framework that typically follows this hig
 
 * **Measure and Iterate:** Constantly ship incremental improvements based on customer usage metrics
 
-In this traditional product development cycle, teams have well-established pipelines and processes in place. Code is written, tested though unit and integration tests and deployed to non-prod and prod environments through tried and tested CI/CD pipelines that have now become industry standard. The point here is that teams have significant control over the context, and with that comes an element of certainty and confidence - you can define the inputs and business logic, and to a large extent control or predict the outputs with a high degree of certainty. Even from a design perspective, designers have confidence in the space and content they are designing with. When bugs occur, they can be reproduced reliably (most of the time!), hot-fixes applied and shipped. This level of predictability has become the norm and at the same time fundamental to how we’ve approached product development, enabling teams to ship with confidence through the use of having controlled datasets and environments. 
+In this traditional product development cycle, teams have well-established pipelines and processes in place. Code is written, tested though unit and integration tests and deployed to non-prod and prod environments through tried and tested CI/CD pipelines that have now become industry standard. The point here is that teams have significant control over the context, and with that comes an element of certainty and confidence - you can define the inputs and business logic, and to a large extent control or predict the outputs with a high degree of certainty. Even from a design perspective, designers have confidence in the space and content they are designing with. When bugs occur, they can be reproduced reliably (_most of the time!_), hot-fixes applied and shipped. This level of predictability has become the norm and at the same time fundamental to how we’ve approached product development, enabling teams to ship with confidence through the use of having controlled datasets and environments. 
 
 ## LLMs are not a feature
 
-Products have evolved to leverage LLMs for core features, and so companies have to adapt to using LLMs in their development cycle. Teams building products now face a set of challenges that do not align with the more controlled elements outlined above. We now have to adapt the traditional product development cycle to include the big black box that an LLM can bring. Not to mention which [LLM a team should use for a specific task](https://blog.tryreva.com/posts/benchmarking-customer-service-llms/)
+Products have evolved to leverage LLMs at their core, and so companies have to adapt to using LLMs in their development cycle. Teams building products now face a set of challenges that do not align with the more controlled elements outlined above. We now have to adapt the traditional product development cycle to include the big black box that an LLM can bring. Not to mention which [LLM a team should use for a specific task](https://blog.tryreva.com/posts/benchmarking-customer-service-llms/)
 
 The controlled and predictable environment teams are used to has been replaced with a more uncertain one, where the relationship between input and output isn’t always deterministic. Even simple features that call an LLM need to account for this shift - the same prompt can produce different responses, user inputs are more varied and unpredictable, and the context teams are dealing with has grown substantially. LLMs are so powerful and the pace of innovation is remarkable, but at the ground level teams are having to rethink how they are not only building product but how they are testing and measuring these LLM-powered products.
 
 ## Test more than Vibes
 
-Teams making a configuration change to a model that is core to their product, often at some stage of their development lifecycle go through introducing a blend of Manual, Vibes and Industry benchmark checks to validate changes. We’ve seen teams:
+Teams making a configuration change to a model that is core to their product, often at some stage of their development lifecycle go through introducing a blend of **Manual**, **Vibes** and **Industry benchmark** checks to validate changes. We’ve seen teams:
 
-* Manually reviewing a suite (or handful) of core test cases and Eyeballing the results
-* Pasting outputs into a spreadsheet and manually reconciling examples
-* Comparing results and performance against industry benchmarks that are often not relevant to your task.
+* Manually reviewing a suite (or handful) of core test cases and eyeballing the results.
+* Pasting outputs into a spreadsheet and manually reconciling examples.
+* Comparing results and performance against industry benchmarks that are often not relevant to the task.
 
 These approaches will never scale. They’re risky for teams working at any scale and introduce significant uncertainty into the development cycle. 
 
@@ -56,7 +54,7 @@ Just as teams have CI/CD pipelines for traditional software development, integra
 When an engineer makes a configuration change, they should be able to run backtests locally against a subset of their historical and real data, over any date-range or size. This rapid feedback loop influences change, removes guesswork as it catches potential issues early in the cycle. 
 
 #### **CI/CD Integration**
-As part of the CI/CD flow teams can test their widespread changes against any subset of historical changes. This gives a wider business perspective of how a change can impact an outcome. “We tested this change on last month's data, and it had an increase of X”
+As part of the CI/CD flow teams can test their widespread changes against any subset of historical changes. This gives a wider business perspective of how a change can impact an outcome. _**“We tested this change on last month's data, and it had an increase of X”**_
 
 
 #### **No vibes path to Production**
@@ -71,10 +69,10 @@ Once changes are pushed to production, continuous backtesting ensures teams have
 
 ## Ship with confidence
 
-The shift towards LLMs being core to products rather than just a feature means teams need to adapt how they approach testing and measuring. As LLMs continue to evolve, and new ones emerge, having systematic backtesting infrastructure isn't just nice to have - it's a crucial part of the development lifecycle. 
-* Engineers can iterate faster, with confidence
-* Product teams are making data-driven decisions about changes beyond vibes
-* ML teams can focus on improvements rather than reviewing spreadsheets
-* Business leaders can clearly see the impact of changes and therefore the true ROI
+The shift towards LLMs being core to products rather than just a feature means teams need to adapt how they approach testing and measuring. As LLMs continue to evolve, and new ones emerge, having systematic backtesting infrastructure isn't just nice to have - it's a crucial part of the development lifecycle:
+* Engineers can iterate faster, with confidence.
+* Product teams are making data-driven decisions about changes beyond vibes.
+* ML engineers can focus on improvements rather than reviewing spreadsheets.
+* Business leaders can clearly see the impact of changes and therefore the true ROI.
 
-We’ve seen firsthand teams shift from a mindset of **“we think this will work”** to **“we know this works!”**
+We’ve seen firsthand teams shift from a mindset of **“we think this will work”** to **“we know this will work!”**
