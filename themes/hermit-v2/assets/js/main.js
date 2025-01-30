@@ -28,7 +28,7 @@ const listen = (ele, e, callback) => {
 //
 let header = document.getElementById('site-header');
 let lastScrollPosition = window.pageYOffset;
-
+/*
 const autoHideHeader = () => {
   let currentScrollPosition = Math.max(window.pageYOffset, 0);
   if (currentScrollPosition > lastScrollPosition) {
@@ -40,7 +40,7 @@ const autoHideHeader = () => {
   }
   lastScrollPosition = currentScrollPosition;
 }
-
+*/
 // Mobile Menu Toggle
 //
 let mobileMenuVisible = false;
