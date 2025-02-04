@@ -13,7 +13,7 @@ tags:
 {{< figure src="https://assets.tryreva.com/deepseek.webp"
 alt="Reva AI tooling - Deepseek"
 
-> }}
+>}}
 
 We've all heard the quote "if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid." This wisdom, often attributed to Albert Einstein, has newfound relevance in today's AI landscape, particularly as we witness impressive benchmark results from models like DeepSeek.
 
