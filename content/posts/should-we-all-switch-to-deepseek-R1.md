@@ -3,15 +3,15 @@ title: "So should we all switch to DeepSeek-R1?"
 date: 2025-02-04T11:00:00+01:00
 toc: false
 description: "In this post we talk about resisting the urge to follow benchmark hype and making changes specific to your task"
-images: [https://assets.tryreva.com/switch.webp]
+images: [https://assets.tryreva.com/deepseek.webp]
 tags:
   - workflow
   - models
   - testing
 ---
 
-{{< figure src="https://assets.tryreva.com/switch.webp"
-alt="Reva AI tooling - AI Product Development Lifecycle"
+{{< figure src="https://assets.tryreva.com/deepseek.webp"
+alt="Reva AI tooling - Deepseek"
 
 > }}
 
