@@ -1,20 +1,30 @@
 :root {
-    --body-bg: #262626;
+    --body-bg: #1c1c1c;
   }
   html {
-    background: #262626 !important;
+    background: #1c1c1c !important;
+
   }
 
   body {
-    background-color: #262626;
+    background-color: #1c1c1c;
   }
 
   .header, 
-header#site-header,
+header#site-header
+{
+  background-color: #1C1C1C !important;
+}
 .footer,
 footer#site-footer {
-  background-color: #262626 !important;
+    background-color: none !important;
 }
+
+body {
+    background-color: #212121;
+    letter-spacing: 0.03em;
+}
+
 
 .overflow-x-auto {
     /* For Webkit browsers (Chrome, Safari) */
@@ -102,7 +112,7 @@ footer#site-footer {
 .post-image img {
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin: 1rem 0 0 0;
+    margin: 0 0 0 0;
 }
 
 .bg-img {
@@ -111,7 +121,7 @@ footer#site-footer {
 }
 
 #share-links {
-    background-color: #262626 !important;
+    background-color: #212121 !important;
 }
 
 #share-links ul {
@@ -123,8 +133,8 @@ footer#site-footer {
 }
 
 .site-branding img {
-    width: 32px;
-    height: 32px;
+    
+    height: 24px;
     /* Optional: add these for smoother scaling */
     object-fit: contain;
     vertical-align: middle;
@@ -134,4 +144,40 @@ footer#site-footer {
 .site-branding img:hover {
     transform: scale(1.1);
     transition: transform 0.2s ease;
+}
+
+.big-button {
+    background: #0B985D;
+    color: #fff;
+    display: inline-block;
+    padding: 4px 16px;
+    border-radius: 8px;
+    font-family: $fonts;
+    font-weight:600;
+    font-size:14px;
+}
+
+.post-title{
+    font-size:24px;
+    font-weight:500;
+    padding-left: 12px;
+}
+.post-day{
+padding-right:12px
+}
+
+
+
+.posts-group .post-item {
+    border-bottom: none!important;
+    background: #1C1C1C;
+    border-radius:8px;
+    padding:0px 12px 12px 12px; 
+}
+
+.posts-group .post-item a{
+         border-bottom: none!important;
+}
+.posts-group li.post-item {
+    margin-bottom:12px
 }

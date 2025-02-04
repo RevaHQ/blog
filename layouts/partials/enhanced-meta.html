@@ -3,6 +3,7 @@
 <meta name="title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ else }}A personal website by {{ .Site.Params.author.name }}{{ end }}{{ end }}">
 <meta name="author" content="{{ .Site.Params.author.name }}">
+<meta name="theme-color" content="#1C1C1C">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
